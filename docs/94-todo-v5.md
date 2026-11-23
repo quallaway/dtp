@@ -255,35 +255,33 @@ Neuer Skill `fishing_net` (30.000 Taler, Tab Ausrüstung): tötet Kabeljau, Lach
 
 Der Neuaufbau der Knöpfe (`PanelScreen.containerTick`, sobald sich der Layout-Schlüssel ändert, etwa Lagerwert oder Seitenzahl) löschte über `Screen.rebuildWidgets` → `clearFocus` den Fokus des Suchfelds. `PanelScreen.rebuildWidgets` gibt ihn jetzt dem Widget zurück, das den Neuaufbau überlebt.
 
-- [ ] 🧪 Mit Ware im Lager in die Suche tippen, während sich der Marktdruck erholt: Das Feld behält den Fokus, auch wenn sich die Seitenzahl ändert.
+- [x] 🧪 Mit Ware im Lager in die Suche tippen, während sich der Marktdruck erholt: Das Feld behält den Fokus, auch wenn sich die Seitenzahl ändert.
 
-### Tooltips und Texte durchgehen.
 
---
-
-### Better Advancement durcharbeiten.
-
-### JEI compatibility
-
-recipe for recycler
 
 ### Trade Chest
 
 - [x] 🔧 Comparator liest den Füllstand von Trade-Chest und Einzahlkiste wie bei einer Vanilla-Kiste (Gametest `chest_comparator`).
-- [ ] 🧪 Im Spiel: Comparator an Trade-Chest und Einzahlkiste; Signal steigt beim Befüllen und fällt sofort nach Verkauf bzw. Einkauf am Marktstand.
-
+- [x] 🧪 Im Spiel: Comparator an Trade-Chest und Einzahlkiste; Signal steigt beim Befüllen und fällt sofort nach Verkauf bzw. Einkauf am Marktstand.
 
 ### Deposit Chest
 
 - [x] 🔧 Eine steigende Redstone-Flanke an der Einzahlkiste löst „Taler ordnen" aus, ein Dauersignal nur einmal (Gametest `deposit_redstone`).
-- [ ] 🧪 Im Spiel: Kiste mit verstreutem Kleingeld, Knopf daneben; jeder Druck ordnet, ein Hebel in Dauerstellung ordnet nur einmal.
+- [x] 🧪 Im Spiel: Kiste mit verstreutem Kleingeld, Knopf daneben; jeder Druck ordnet, ein Hebel in Dauerstellung ordnet nur einmal.
 
 ### Statistics Block
 
 Ein eigener Reiter in der GUI mit einem Balkendiagram für die Taler Einnahmen der Welt.
 Jeder Tag soll von einem Balken repräsentiert werden der die erwirtschafteten Taler darstellt. So hat man ein Rückblick der letzten Tage. Beim drüberhovern soll die Zahl dargestellt werden, da die Y-Achse vermutlich dynamisch relativ zu den anderen Balken sein soll.
 
+Umgesetzt als Reiter **Einnahmen**, siehe [Statistik-Tafel](18-statistik.md#einnahmen): je Minecraft-Tag (F3) ein gestapelter Balken aus Verkaufserlös und Contract-Belohnungen, die letzten 14 Tage.
 
+- [x] 🔧 `StatisticsData` v2 mit Einnahmen je Minecraft-Tag (`Market.sell`, `Contracts.complete`), Datenstand `income`, Reiter mit Diagramm, Achse und Tooltip.
+- [x] 🔧 GameTest `statistics_income`; `contract_delivery` prüft den Lohn in den Einnahmen.
+- [ ] 🧪 Im Spiel: verkaufen und einen Contract abschließen, der heutige Balken wächst gestapelt (Gold unten, Grün oben).
+- [ ] 🧪 Schlafen oder `/time add 1d`: rechts entsteht ein neuer Balken, die übrigen rücken nach links, die Achse skaliert neu.
+- [ ] 🧪 Hover zeigt Tag, Summe und Aufteilung.
+- [ ] 🧪 Zeitraum als ein Umschaltknopf rechts in der Gruppenreihe (nur „Sales“): Ein Klick wechselt zwischen „14 Tage“ und „Gesamt“. Die 9 Standardgruppen bleiben einreihig, und oben stehen die drei Reiter in voller Breite, auf Deutsch und Englisch.
 
 ### Multiplayer
 

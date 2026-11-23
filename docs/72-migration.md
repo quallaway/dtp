@@ -30,6 +30,21 @@ Der Befehl schreibt die Datei neu, lädt sie und schickt sie an verbundene Clien
 
 ---
 
+## Statistik-Tafel: Reiter Einnahmen (23. November 2026)
+
+### Was zu tun ist
+
+1. **Backup** von Welt und `config/`.
+2. **`.jar` ersetzen** und den Server starten. Neue Config-Schlüssel gibt es nicht.
+
+### Was mit den Daten passiert
+
+- `dtp:statistics` geht von Version 1 auf **2**. Umgeschrieben wird nichts, neu ist nur das Feld `income` (Einnahmen je Minecraft-Tag).
+- **Das Diagramm beginnt leer.** Die bisherigen Verkäufe sind je Markttag gespeichert und lassen sich keinem Minecraft-Tag zuordnen. Ab dem Update zählen Verkäufe und Contract-Belohnungen.
+- **Zurück auf die ältere Version** geht nicht, sie lehnt Version 2 ab. Vor dem Update ein Backup anlegen.
+
+---
+
 ## Zeitbonus wieder +20 %, Hot Delivery heißt Quick Delivery (22. November 2026)
 
 ### Was zu tun ist

@@ -27,6 +27,16 @@ Kein Preis- oder Lohnvorteil, kein Malus für dezentrale Marktstände — beide 
 
 # Ideen
 
+## Tooltips und Texte durchgehen.
+
+## Better Advancement durcharbeiten.
+
+## JEI compatibility
+
+- recipe for recycler
+
+## Death Counter / Contract Counter
+
 ## Stockmarket
 
 - Items mit wandernden Preisdruck die gekauft und verkauft werden können.
@@ -37,3 +47,4 @@ Kein Preis- oder Lohnvorteil, kein Malus für dezentrale Marktstände — beide 
 ## Pet Upgrades
 
 ## Monumentalprojekt
+

@@ -105,7 +105,7 @@ Auf Ebene der Server-Welt, nicht pro Dimension — sonst hätte der Nether seine
 | `dtp:contract_board` | `ContractBoard` | **1** | Angebote im Aushang, nächste Rotation |
 | `dtp:blackmarket` | `BlackmarketData` | **1** | Markttag der letzten Nutzung (Tageslimit), frühester Tick für den nächsten Schwarzmarkthändler |
 | `dtp:chunk_loaders` | `ChunkLoaderData` | **1** | Restlaufzeit in Ticks je Chunkloader (Dimension und Position) |
-| `dtp:statistics` | `StatisticsData` | **1** | Verkäufe je Item (gesamt und je Markttag der letzten 14), abgeschlossene Contracts je Spieler und Stufe mit letztem Namen |
+| `dtp:statistics` | `StatisticsData` | **2** | Verkäufe je Item (gesamt und je Markttag der letzten 14), abgeschlossene Contracts je Spieler und Stufe mit letztem Namen, Einnahmen je Minecraft-Tag (Verkäufe, Contracts) der letzten 14 |
 
 Die **Chunk-Tickets** des Chunkloaders sind kein eigener Zustand, sondern aus `dtp:chunk_loaders` abgeleitet. Sie laufen über einen NeoForge-`TicketController` (`dtp:chunk_loader`). Beim Serverstart verwirft er alle gespeicherten Tickets, und der Takt alle 20 Ticks setzt sie neu, sobald ein Spieler online ist. Ohne Spieler nimmt er sie wieder weg. So kann kein Ticket einen abgebauten Block oder eine abgelaufene Laufzeit überleben.
 

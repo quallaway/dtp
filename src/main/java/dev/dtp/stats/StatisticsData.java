@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.Dynamic;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import net.minecraft.core.UUIDUtil;
@@ -26,10 +27,15 @@ import dev.dtp.market.MarketData;
 
 /**
  * Serverweite Statistik für die Statistik-Tafel: verkaufte Stück und Erlös je Item, insgesamt und je Markttag der
- * letzten {@link MarketData#HISTORY_DAYS} Tage, dazu die abgeschlossenen Contracts je Spieler und Stufe.
+ * letzten {@link MarketData#HISTORY_DAYS} Tage, dazu die abgeschlossenen Contracts je Spieler und Stufe und die
+ * Einnahmen der Welt (Verkäufe und Contract-Belohnungen) je Minecraft-Tag.
  *
  * <p>Verkäufe zählt {@link Market#sell} — die eine Engstelle aller Verkaufswege. Contracts zählt
  * {@link dev.dtp.contract.Contracts}, Altbestände aus {@link PlayerContracts} übernimmt {@link #seed} beim Login.
+ *
+ * <p>Zwei Tagesbegriffe: Die Verkäufe je Item hängen am Markttag (der Zeitraum „14 Tage“ wie im Preisverlauf), die
+ * Einnahmenreihe am Minecraft-Tag der Overworld, also dem Tag, den Spieler in F3 sehen. Der Markttag läuft nur mit
+ * Spielern online und weicht darum ab.
  */
 public class StatisticsData extends SavedData {
     /** Verkaufte Stück und Erlös in Taler. */
@@ -52,6 +58,19 @@ public class StatisticsData extends SavedData {
         ).apply(i, (day, sales) -> new Day(day, new HashMap<>(sales))));
     }
 
+    /** Einnahmen der Welt an einem Minecraft-Tag: Erlös aus Verkäufen und ausgezahlte Contract-Belohnungen. */
+    public record DayIncome(int day, long sales, long contracts) {
+        static final Codec<DayIncome> CODEC = RecordCodecBuilder.create(i -> i.group(
+                Codec.INT.fieldOf("day").forGetter(DayIncome::day),
+                Codec.LONG.optionalFieldOf("sales", 0L).forGetter(DayIncome::sales),
+                Codec.LONG.optionalFieldOf("contracts", 0L).forGetter(DayIncome::contracts)
+        ).apply(i, DayIncome::new));
+
+        public long total() {
+            return sales + contracts;
+        }
+    }
+
     /** Zuletzt gesehener Name und abgeschlossene Contracts je Stufe (Index 0 = Stufe 1). */
     public record PlayerTally(String name, List<Integer> perTier) {
         static final Codec<PlayerTally> CODEC = RecordCodecBuilder.create(i -> i.group(
@@ -71,10 +90,22 @@ public class StatisticsData extends SavedData {
     private static final Codec<StatisticsData> INNER = RecordCodecBuilder.create(i -> i.group(
             Codec.unboundedMap(Identifier.CODEC, Tally.CODEC).optionalFieldOf("all_time", Map.of()).forGetter(d -> d.allTime),
             Day.CODEC.listOf().optionalFieldOf("days", List.of()).forGetter(d -> d.days),
-            Codec.unboundedMap(UUIDUtil.STRING_CODEC, PlayerTally.CODEC).optionalFieldOf("players", Map.of()).forGetter(d -> d.players)
+            Codec.unboundedMap(UUIDUtil.STRING_CODEC, PlayerTally.CODEC).optionalFieldOf("players", Map.of()).forGetter(d -> d.players),
+            DayIncome.CODEC.listOf().optionalFieldOf("income", List.of()).forGetter(d -> d.income)
     ).apply(i, StatisticsData::new));
 
-    public static final Codec<StatisticsData> CODEC = Versioned.codec(1, INNER, List.of());
+    /** v1 → v2: Einnahmen je Minecraft-Tag. Das Feld ist optional und beginnt leer, umgeschrieben wird nichts. */
+    private static final Versioned.Step V1_ADD_INCOME = new Versioned.Step() {
+        @Override
+        public <T> Dynamic<T> migrate(Dynamic<T> data) {
+            return data;
+        }
+    };
+
+    public static final Codec<StatisticsData> CODEC = Versioned.codec(2, INNER, List.of(V1_ADD_INCOME));
+
+    /** Ticks eines Minecraft-Tags. */
+    private static final long TICKS_PER_DAY = 24000L;
 
     public static final SavedDataType<StatisticsData> TYPE = new SavedDataType<>(
             Identifier.fromNamespaceAndPath(Dtp.MODID, "statistics"), StatisticsData::new, CODEC, (DataFixTypes) null);
@@ -82,17 +113,19 @@ public class StatisticsData extends SavedData {
     private final Map<Identifier, Tally> allTime;
     private final List<Day> days;
     private final Map<UUID, PlayerTally> players;
+    private final List<DayIncome> income;
     /** Zählt jede Änderung hoch; die Statistik-Tafel baut ihren Datenstand nur neu, wenn sie sich ändert. Nicht gespeichert. */
     private int revision;
 
     public StatisticsData() {
-        this(Map.of(), List.of(), Map.of());
+        this(Map.of(), List.of(), Map.of(), List.of());
     }
 
-    private StatisticsData(Map<Identifier, Tally> allTime, List<Day> days, Map<UUID, PlayerTally> players) {
+    private StatisticsData(Map<Identifier, Tally> allTime, List<Day> days, Map<UUID, PlayerTally> players, List<DayIncome> income) {
         this.allTime = new HashMap<>(allTime);
         this.days = new ArrayList<>(days);
         this.players = new HashMap<>(players);
+        this.income = new ArrayList<>(income);
     }
 
     public static StatisticsData get(MinecraftServer server) {
@@ -126,6 +159,7 @@ public class StatisticsData extends SavedData {
             days.add(day);
         }
         day.sales().merge(id, tally, Tally::add);
+        addIncome(minecraftDay(server), taler, 0);
         changed();
     }
 
@@ -153,13 +187,56 @@ public class StatisticsData extends SavedData {
         return result;
     }
 
+    // --- Einnahmen je Minecraft-Tag -----------------------------------------------------------
+
+    /** Der Minecraft-Tag der Overworld, wie in F3. Schlafen und {@code /time} verschieben ihn — gewollt. */
+    public static int minecraftDay(MinecraftServer server) {
+        return (int) Math.floorDiv(server.overworld().getOverworldClockTime(), TICKS_PER_DAY);
+    }
+
+    /**
+     * Zählt Einnahmen am Minecraft-Tag {@code day}; öffentlich für die GameTests. Verwirft vorher alle Tage außerhalb
+     * der letzten {@link MarketData#HISTORY_DAYS} bis {@code day} — auch Tage „aus der Zukunft“, die nach dem
+     * Zurückstellen der Uhr übrig wären und später an falscher Stelle wieder auftauchen würden.
+     */
+    public void addIncome(int day, long sales, long contracts) {
+        if (sales <= 0 && contracts <= 0) {
+            return;
+        }
+        income.removeIf(d -> d.day() <= day - MarketData.HISTORY_DAYS || d.day() > day);
+        for (int i = 0; i < income.size(); i++) {
+            DayIncome d = income.get(i);
+            if (d.day() == day) {
+                income.set(i, new DayIncome(day, d.sales() + Math.max(0, sales), d.contracts() + Math.max(0, contracts)));
+                changed();
+                return;
+            }
+        }
+        income.add(new DayIncome(day, Math.max(0, sales), Math.max(0, contracts)));
+        changed();
+    }
+
+    /**
+     * Einnahmen der letzten {@link MarketData#HISTORY_DAYS} Minecraft-Tage bis {@code today}, vom ältesten bis heute;
+     * Tage ohne Einnahmen zählen null.
+     */
+    public List<DayIncome> dailyIncome(int today) {
+        List<DayIncome> result = new ArrayList<>(MarketData.HISTORY_DAYS);
+        for (int day = today - MarketData.HISTORY_DAYS + 1; day <= today; day++) {
+            int wanted = day;
+            result.add(income.stream().filter(d -> d.day() == wanted).findFirst().orElse(new DayIncome(day, 0, 0)));
+        }
+        return result;
+    }
+
     // --- Contracts -----------------------------------------------------------------------------
 
-    /** Ein abgeschlossener Contract. */
-    public void recordContract(UUID player, String name, int tier) {
+    /** Ein abgeschlossener Contract mit dem ausgezahlten Lohn. */
+    public void recordContract(MinecraftServer server, UUID player, String name, int tier, long payout) {
         if (tier < 1) {
             return;
         }
+        addIncome(minecraftDay(server), 0, payout);
         PlayerTally tally = players.computeIfAbsent(player, id -> new PlayerTally(name, new ArrayList<>()));
         List<Integer> perTier = tally.perTier();
         while (perTier.size() < tier) {

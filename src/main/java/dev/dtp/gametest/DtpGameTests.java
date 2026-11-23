@@ -269,7 +269,7 @@ public final class DtpGameTests {
     private static final DeferredRegister<Consumer<GameTestHelper>> FUNCTIONS = DeferredRegister.create(Registries.TEST_FUNCTION, Dtp.MODID);
 
     private static final List<String> TESTS = List.of(
-            "taler_split", "data_loaded", "contract_decay", "market_stock_sale", "deposit_payment", "deposit_redstone", "chest_comparator", "market_redstone", "band_position", "contract_delivery", "market_categories", "board_rotation", "board_flag", "clocks_players", "accepted_contract_clock", "contract_unlock", "workshop_buy", "trade_upgrades", "max_health", "chain_collect", "fortune_silk_touch", "relay_beacon", "nether_lock", "market_event", "market_event_types", "market_fast_recovery", "market_world_bonus", "price_history", "contract_conditions", "contract_condition_delivery", "trade_list_order", "chain_durability", "chain_inventory", "shared_goods", "ominous_banner", "market_minimum", "market_floor_recovery", "market_scale", "market_category_unlock", "market_event_rotation", "player_modules", "rush_kill", "barrier_shield", "area_mining", "skills", "fishing_net", "contract_group_delivery", "contract_tier_scaling", "contract_quality", "contract_template_unlock", "contract_random_potions", "animal_husbandry", "beekeeping", "farming", "server_rules", "beacon_building", "rebuild", "expedition_prep", "updraft", "farm_upgrades", "crop_fortune", "enchant_bonuses", "fishing_finds_syntax", "fishing_finds_entries", "fishing_treasure", "double_bobbers", "anvil_cap", "workshop_layout", "beacon_layout", "contract_random_enchantments", "blackmarket_upgrade", "blackmarket_rejects", "blackmarket_daily_limit", "blackmarket_outcomes", "repair_station_quote", "repair_station_rejects", "repair_station_repair", "scam_curse_contract", "scam_curse_anvil", "scam_curse_tags", "toll_curse_pay", "toll_curse_no_coins", "toll_curse_chain", "toll_curse_unbreaking", "toll_curse_tags", "blackmarket_chance", "blackmarket_lure", "blackmarket_offers", "blackmarket_no_arbitrage", "contraband_crate_open", "structure_finds_table", "structure_finds_chest", "structure_taler", "contraband_use", "contraband_recharge", "contraband_protection", "supplies_amethyst_catalyst", "supplies_rain_catalyst", "supplies_return_scroll", "contraband_watch_bell", "contraband_oozing_rod", "contraband_spawn_wand", "contraband_pocket_money_pouch", "contraband_gun", "contraband_endless_torch", "beacon_recipe", "guide_grids", "onboarding", "guide_files", "guide_parser", "remote_delivery", "contract_clock_lines", "contract_clock_binding", "chunk_loader", "slot_machine_odds", "slot_machine_payout", "slot_machine_spin", "recycler_process", "recycler_rejects", "recycler_menu", "recycler_chance", "recycling_data", "scrap_tradable", "statistics_sales", "statistics_seed", "statistics_snapshot", "advancements_loaded", "data_files_valid", "compat_optional", "merchant_goods_offers", "merchant_goods_hero_gift", "merchant_goods_blocked", "merchant_goods_combine", "merchant_goods_pool");
+            "taler_split", "data_loaded", "contract_decay", "market_stock_sale", "deposit_payment", "deposit_redstone", "chest_comparator", "market_redstone", "band_position", "contract_delivery", "market_categories", "board_rotation", "board_flag", "clocks_players", "accepted_contract_clock", "contract_unlock", "workshop_buy", "trade_upgrades", "max_health", "chain_collect", "fortune_silk_touch", "relay_beacon", "nether_lock", "market_event", "market_event_types", "market_fast_recovery", "market_world_bonus", "price_history", "contract_conditions", "contract_condition_delivery", "trade_list_order", "chain_durability", "chain_inventory", "shared_goods", "ominous_banner", "market_minimum", "market_floor_recovery", "market_scale", "market_category_unlock", "market_event_rotation", "player_modules", "rush_kill", "barrier_shield", "area_mining", "skills", "fishing_net", "contract_group_delivery", "contract_tier_scaling", "contract_quality", "contract_template_unlock", "contract_random_potions", "animal_husbandry", "beekeeping", "farming", "server_rules", "beacon_building", "rebuild", "expedition_prep", "updraft", "farm_upgrades", "crop_fortune", "enchant_bonuses", "fishing_finds_syntax", "fishing_finds_entries", "fishing_treasure", "double_bobbers", "anvil_cap", "workshop_layout", "beacon_layout", "contract_random_enchantments", "blackmarket_upgrade", "blackmarket_rejects", "blackmarket_daily_limit", "blackmarket_outcomes", "repair_station_quote", "repair_station_rejects", "repair_station_repair", "scam_curse_contract", "scam_curse_anvil", "scam_curse_tags", "toll_curse_pay", "toll_curse_no_coins", "toll_curse_chain", "toll_curse_unbreaking", "toll_curse_tags", "blackmarket_chance", "blackmarket_lure", "blackmarket_offers", "blackmarket_no_arbitrage", "contraband_crate_open", "structure_finds_table", "structure_finds_chest", "structure_taler", "contraband_use", "contraband_recharge", "contraband_protection", "supplies_amethyst_catalyst", "supplies_rain_catalyst", "supplies_return_scroll", "contraband_watch_bell", "contraband_oozing_rod", "contraband_spawn_wand", "contraband_pocket_money_pouch", "contraband_gun", "contraband_endless_torch", "beacon_recipe", "guide_grids", "onboarding", "guide_files", "guide_parser", "remote_delivery", "contract_clock_lines", "contract_clock_binding", "chunk_loader", "slot_machine_odds", "slot_machine_payout", "slot_machine_spin", "recycler_process", "recycler_rejects", "recycler_menu", "recycler_chance", "recycling_data", "scrap_tradable", "statistics_sales", "statistics_seed", "statistics_snapshot", "statistics_income", "advancements_loaded", "data_files_valid", "compat_optional", "merchant_goods_offers", "merchant_goods_hero_gift", "merchant_goods_blocked", "merchant_goods_combine", "merchant_goods_pool");
     /** Tests mit Umkreissuche laufen je in einer eigenen Runde, damit keine Kisten benachbarter Tests mitzählen. */
     private static final List<String> ISOLATED = List.of("market_stock_sale", "deposit_payment", "deposit_redstone", "chest_comparator", "market_redstone", "contract_delivery", "contract_unlock", "workshop_buy", "chain_collect", "relay_beacon", "nether_lock", "market_event", "market_event_types", "market_fast_recovery", "market_world_bonus", "price_history", "contract_condition_delivery", "chain_durability", "chain_inventory", "shared_goods", "ominous_banner", "market_minimum", "market_floor_recovery", "market_scale", "market_category_unlock", "market_event_rotation", "player_modules", "contract_group_delivery", "contract_template_unlock", "animal_husbandry", "beekeeping", "farming", "server_rules", "beacon_building", "rebuild", "expedition_prep", "blackmarket_lure", "contraband_watch_bell", "contraband_pocket_money_pouch", "contraband_gun", "supplies_return_scroll", "supplies_rain_catalyst", "remote_delivery", "chunk_loader", "slot_machine_spin", "recycler_process", "recycler_menu", "scrap_tradable", "statistics_sales", "compat_optional");
 
@@ -296,6 +296,7 @@ public final class DtpGameTests {
         FUNCTIONS.register("statistics_sales", () -> DtpGameTests::statisticsSales);
         FUNCTIONS.register("statistics_seed", () -> DtpGameTests::statisticsSeed);
         FUNCTIONS.register("statistics_snapshot", () -> DtpGameTests::statisticsSnapshot);
+        FUNCTIONS.register("statistics_income", () -> DtpGameTests::statisticsIncome);
         FUNCTIONS.register("advancements_loaded", () -> DtpGameTests::advancementsLoaded);
         FUNCTIONS.register("data_files_valid", () -> DtpGameTests::dataFilesValid);
         FUNCTIONS.register("compat_optional", () -> DtpGameTests::compatOptional);
@@ -1464,6 +1465,7 @@ public final class DtpGameTests {
         helper.assertTrue(Contracts.of(player).accepted().get(0).delivered() == 100, "partial delivery of 100");
         helper.assertTrue(trade.isEmpty(), "delivered items leave the trade chest");
         helper.assertTrue(deposit.balance() == 0, "no reward before completion");
+        long incomeBefore = todayIncome(level.getServer()).contracts();
 
         trade.setItem(0, new ItemStack(Items.WHEAT, 60));
         withTerritory(helper, () -> Contracts.deliver(level, board, player, contract.id()));
@@ -1478,6 +1480,9 @@ public final class DtpGameTests {
         helper.assertTrue(Contracts.of(player).completed(1) == 1, "completion counts towards the next tier");
         StatisticsData.PlayerTally tally = StatisticsData.get(level.getServer()).players().get(player.getUUID());
         helper.assertTrue(tally != null && tally.completed(1) == 1 && tally.total() == 1, "the statistics board counts the completion: " + tally);
+        long incomeAfter = todayIncome(level.getServer()).contracts();
+        helper.assertTrue(incomeAfter == incomeBefore + contract.payout(day),
+                "today's income counts the reward: " + incomeBefore + " -> " + incomeAfter);
         cleanup(helper, tradeRel, depositRel);
         helper.succeed();
     }
@@ -6911,7 +6916,7 @@ public final class DtpGameTests {
         mine.addCompleted(1);
         helper.assertFalse(stats.seed(player.getUUID(), "Seedy", mine, 4), "a second login seeds nothing");
         helper.assertTrue(stats.players().get(player.getUUID()).total() == 3, "seeding does not count twice");
-        stats.recordContract(player.getUUID(), "Seedy", 3);
+        stats.recordContract(helper.getLevel().getServer(), player.getUUID(), "Seedy", 3, 0);
         stats.rememberName(player.getUUID(), "Renamed");
         tally = stats.players().get(player.getUUID());
         helper.assertTrue(tally.completed(3) == 1 && tally.total() == 4, "a new completion counts: " + tally);
@@ -6924,7 +6929,7 @@ public final class DtpGameTests {
         MinecraftServer server = helper.getLevel().getServer();
         StatisticsData stats = StatisticsData.get(server);
         Player player = helper.makeMockPlayer(GameType.SURVIVAL);
-        stats.recordContract(player.getUUID(), "Snap", 1);
+        stats.recordContract(server, player.getUUID(), "Snap", 1, 0);
         int assigned = stats.players().values().stream().mapToInt(StatisticsData.PlayerTally::total).sum();
 
         CompoundTag tag = StatisticsMenu.build(server, stats, assigned + 5);
@@ -6943,6 +6948,69 @@ public final class DtpGameTests {
         }
         helper.assertTrue(found, "the player is listed by name");
         helper.assertTrue(StatisticsMenu.build(server, stats, 0).getIntOr("unassigned", -1) == 0, "never negative");
+        helper.succeed();
+    }
+
+    /** Einnahmen des heutigen Minecraft-Tags laut Statistik-Tafel. */
+    private static StatisticsData.DayIncome todayIncome(MinecraftServer server) {
+        return StatisticsData.get(server).dailyIncome(StatisticsData.minecraftDay(server)).getLast();
+    }
+
+    /**
+     * Einnahmen je Minecraft-Tag: Verkäufe und Contracts am heutigen Tag, ein festes Fenster von 14 Tagen mit Nullen
+     * für leere Tage, Verwerfen alter und „zukünftiger“ Tage und das Speicherformat v1 → v2.
+     */
+    private static void statisticsIncome(GameTestHelper helper) {
+        ServerLevel level = helper.getLevel();
+        MinecraftServer server = level.getServer();
+        StatisticsData stats = StatisticsData.get(server);
+        int days = MarketData.HISTORY_DAYS;
+
+        long salesBefore = todayIncome(server).sales();
+        long paid = Market.sell(level, helper.absolutePos(BlockPos.ZERO), Items.WHEAT, 16);
+        helper.assertTrue(paid > 0 && todayIncome(server).sales() == salesBefore + paid,
+                "a sale counts as income today: " + salesBefore + " + " + paid + " -> " + todayIncome(server).sales());
+
+        // Eigene Instanz mit festen Tagen, damit weder die Weltzeit noch andere Tests hineinspielen.
+        StatisticsData fresh = new StatisticsData();
+        int d = 1000;
+        fresh.addIncome(d, 100, 0);
+        fresh.addIncome(d, 0, 50);
+        fresh.addIncome(d + 1, 10, 0);
+        List<StatisticsData.DayIncome> window = fresh.dailyIncome(d + 1);
+        helper.assertTrue(window.size() == days, "always " + days + " days: " + window.size());
+        helper.assertTrue(window.get(0).day() == d + 2 - days && window.get(days - 1).day() == d + 1, "oldest first, today last");
+        StatisticsData.DayIncome yesterday = window.get(days - 2);
+        helper.assertTrue(yesterday.day() == d && yesterday.sales() == 100 && yesterday.contracts() == 50 && yesterday.total() == 150,
+                "yesterday sums sales and contracts: " + yesterday);
+        helper.assertTrue(window.get(days - 1).sales() == 10, "today: " + window.get(days - 1));
+        helper.assertTrue(window.get(0).total() == 0, "days without income count zero");
+        int later = d + 1 + days;
+        helper.assertTrue(fresh.dailyIncome(later).stream().allMatch(e -> e.total() == 0), days + " days later nothing is left in the window");
+
+        fresh.addIncome(later, 1, 0);
+        helper.assertTrue(fresh.dailyIncome(d + 1).stream().allMatch(e -> e.total() == 0), "older days are dropped when a new day is written");
+        // Uhr zurückgestellt: der spätere Tag fällt weg, sobald auf einem früheren gezählt wird.
+        fresh.addIncome(d + 5, 7, 0);
+        helper.assertTrue(fresh.dailyIncome(later).getLast().total() == 0, "a day after the current clock is dropped");
+        fresh.addIncome(d + 5, 0, 0);
+        helper.assertTrue(fresh.dailyIncome(d + 5).getLast().sales() == 7, "zero income changes nothing");
+
+        CompoundTag tag = StatisticsMenu.build(server, stats, 0);
+        ListTag income = tag.getListOrEmpty("income");
+        helper.assertTrue(income.size() == days, "the snapshot carries " + days + " days: " + income.size());
+        helper.assertTrue(income.getCompoundOrEmpty(days - 1).getIntOr("day", -1) == StatisticsData.minecraftDay(server),
+                "the last entry is today");
+
+        // Speicherformat: v1 ohne Einnahmen lädt leer, gespeichert wird v2 mit den Einnahmen.
+        CompoundTag v1 = new CompoundTag();
+        v1.putInt(Versioned.KEY, 1);
+        StatisticsData migrated = StatisticsData.CODEC.parse(NbtOps.INSTANCE, v1).getOrThrow();
+        helper.assertTrue(migrated.dailyIncome(d).stream().allMatch(e -> e.total() == 0), "v1 data: no income yet");
+        Tag saved = StatisticsData.CODEC.encodeStart(NbtOps.INSTANCE, fresh).getOrThrow();
+        helper.assertTrue(((CompoundTag) saved).getIntOr(Versioned.KEY, 0) == 2, "saved with the current version");
+        StatisticsData loaded = StatisticsData.CODEC.parse(NbtOps.INSTANCE, saved).getOrThrow();
+        helper.assertTrue(loaded.dailyIncome(d + 5).getLast().sales() == 7, "income survives saving and loading");
         helper.succeed();
     }
 

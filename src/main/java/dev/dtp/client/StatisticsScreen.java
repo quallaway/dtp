@@ -9,11 +9,13 @@ import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.input.MouseButtonEvent;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -24,7 +26,9 @@ import dev.dtp.menu.StatisticsMenu;
 /**
  * Statistik-Tafel. Reiter „Verkäufe“: was der Server je Ware verkauft und erlöst hat, in den letzten 14 Markttagen
  * oder insgesamt, gefiltert nach Marktgruppen wie am Marktstand und sortierbar nach Stück oder Taler. Reiter
- * „Contracts“: Gesamtzahl und je Spieler die Abschlüsse je Stufe.
+ * „Contracts“: Gesamtzahl und je Spieler die Abschlüsse je Stufe. Reiter „Einnahmen“: je Minecraft-Tag ein
+ * gestapelter Balken aus Verkaufserlös und Contract-Belohnungen; die Achse richtet sich nach dem stärksten Tag, die
+ * genauen Zahlen zeigt der Tooltip.
  *
  * <p>Alles hier ist Ansicht: Reiter, Zeitraum, Gruppe, Sortierung und Scrollen laufen auf dem Client.
  */
@@ -46,8 +50,20 @@ public class StatisticsScreen extends PanelScreen<StatisticsMenu> {
     private static final int CONTRACT_ROW = 12;
     private static final int CONTRACT_ROWS = 13;
     private static final int TIER_STEP = 30;
+    private static final int TAB_WIDTH = 64;
+    /** Umschaltknopf für den Zeitraum, rechts in der Reihe der Gruppenknöpfe. */
+    private static final int RANGE_WIDTH = 48;
+    private static final int INCOME_TOP = 40;
+    /** Platz links der Diagrammfläche für die Achsenbeschriftung. */
+    private static final int AXIS_WIDTH = 26;
+    private static final int CHART_LEFT = LEFT + AXIS_WIDTH;
+    private static final int CHART_RIGHT = WIDTH - LEFT;
+    private static final int CHART_TOP = INCOME_TOP + 18;
+    /** Unterkante der Diagrammfläche bei einer Reihe Gruppenknöpfe; darunter steht die Tagesbeschriftung. */
+    private static final int CHART_BOTTOM = HEIGHT - 26;
 
-    private final CategoryBar categories = new CategoryBar(LEFT, CATEGORY_TOP, INNER);
+    /** Rechts bleibt Platz für den Zeitraumknopf; bei den Standardgruppen bleibt die Leiste einreihig. */
+    private final CategoryBar categories = new CategoryBar(LEFT, CATEGORY_TOP, INNER - RANGE_WIDTH - 4);
     private Tab tab = Tab.SALES;
     private boolean recent = true;
     private SortColumn sort = SortColumn.TALER;
@@ -63,12 +79,17 @@ public class StatisticsScreen extends PanelScreen<StatisticsMenu> {
     protected void init() {
         super.init();
         CompoundTag d = data();
-        local(Component.translatable("dtp.stats.tab.sales"), LEFT, TAB_TOP, 64, tab != Tab.SALES, () -> tab = Tab.SALES);
-        local(Component.translatable("dtp.stats.tab.contracts"), LEFT + 66, TAB_TOP, 64, tab != Tab.CONTRACTS, () -> tab = Tab.CONTRACTS);
+        local(Component.translatable("dtp.stats.tab.sales"), LEFT, TAB_TOP, TAB_WIDTH, tab != Tab.SALES, () -> tab = Tab.SALES);
+        local(Component.translatable("dtp.stats.tab.contracts"), LEFT + TAB_WIDTH + 2, TAB_TOP, TAB_WIDTH, tab != Tab.CONTRACTS,
+                () -> tab = Tab.CONTRACTS);
+        local(Component.translatable("dtp.stats.tab.income"), LEFT + 2 * (TAB_WIDTH + 2), TAB_TOP, TAB_WIDTH, tab != Tab.INCOME,
+                () -> tab = Tab.INCOME);
         if (tab == Tab.SALES) {
-            local(Component.translatable("dtp.stats.range.recent", d.getIntOr("days", 14)), WIDTH - LEFT - 130, TAB_TOP, 64, !recent,
-                    () -> setRecent(true));
-            local(Component.translatable("dtp.stats.range.all"), WIDTH - LEFT - 64, TAB_TOP, 64, recent, () -> setRecent(false));
+            // Ein Knopf, der den gewählten Zeitraum zeigt und bei jedem Klick wechselt.
+            int days = d.getIntOr("days", 14);
+            Component range = recent ? Component.translatable("dtp.stats.range.recent", days) : Component.translatable("dtp.stats.range.all");
+            local(range, WIDTH - LEFT - RANGE_WIDTH, CATEGORY_TOP, RANGE_WIDTH, true, () -> setRecent(!recent))
+                    .setTooltip(Tooltip.create(Component.translatable("dtp.stats.range.hint", days)));
             categories.init(d, this::local, () -> salesScroll = 0);
         }
     }
@@ -185,10 +206,12 @@ public class StatisticsScreen extends PanelScreen<StatisticsMenu> {
             return super.mouseScrolled(x, y, scrollX, scrollY);
         }
         int step = scrollY > 0 ? -1 : 1;
-        if (tab == Tab.SALES) {
-            salesScroll = clamp(salesScroll + step, rows().size(), SALES_ROWS);
-        } else {
-            contractScroll = clamp(contractScroll + step, contractLines(), CONTRACT_ROWS);
+        switch (tab) {
+            case SALES -> salesScroll = clamp(salesScroll + step, rows().size(), SALES_ROWS);
+            case CONTRACTS -> contractScroll = clamp(contractScroll + step, contractLines(), CONTRACT_ROWS);
+            case INCOME -> {
+                // Das Diagramm zeigt immer alle Tage, es gibt nichts zu scrollen.
+            }
         }
         return true;
     }
@@ -201,10 +224,10 @@ public class StatisticsScreen extends PanelScreen<StatisticsMenu> {
 
     @Override
     protected void content(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        if (tab == Tab.SALES) {
-            sales(g, mouseX, mouseY);
-        } else {
-            contracts(g, mouseX, mouseY);
+        switch (tab) {
+            case SALES -> sales(g, mouseX, mouseY);
+            case CONTRACTS -> contracts(g, mouseX, mouseY);
+            case INCOME -> income(g, mouseX, mouseY);
         }
     }
 
@@ -350,6 +373,113 @@ public class StatisticsScreen extends PanelScreen<StatisticsMenu> {
         scrollbar(g, rowsTop, CONTRACT_ROWS * CONTRACT_ROW, lines, CONTRACT_ROWS, contractScroll);
     }
 
+    // --- Einnahmen --------------------------------------------------------------------------
+
+    /**
+     * Balkendiagramm der Einnahmen je Minecraft-Tag, ältester Tag links, heute rechts. Jeder Balken stapelt den
+     * Verkaufserlös (Gold, unten) und die Contract-Belohnungen (Grün, oben). Die Achse reicht bis zum stärksten Tag,
+     * aufgerundet auf einen runden Wert; die Gitterlinien geben die Größenordnung, die genaue Zahl der Tooltip. Die
+     * Gruppenknöpfe des Verkäufe-Reiters machen das Panel höher — das Diagramm nutzt den Platz mit.
+     */
+    private void income(GuiGraphicsExtractor g, int mouseX, int mouseY) {
+        ListTag days = data().getListOrEmpty("income");
+        int n = days.size();
+        long sum = 0;
+        long max = 0;
+        for (int i = 0; i < n; i++) {
+            long total = total(days.getCompoundOrEmpty(i));
+            sum += total;
+            max = Math.max(max, total);
+        }
+        Component label = Component.translatable("dtp.stats.income.total", n);
+        Component total = Money.component(sum);
+        g.text(font, Gui.fit(font, label, TALER_RIGHT - font.width(total) - 6 - LEFT), LEFT, INCOME_TOP, Gui.MUTED, false);
+        g.text(font, total, CHART_RIGHT - font.width(total), INCOME_TOP, Gui.GOLD, false);
+        if (n == 0 || max == 0) {
+            g.textWithWordWrap(font, Component.translatable("dtp.stats.income.empty"), LEFT, CHART_TOP + 4, INNER, Gui.MUTED, false);
+            return;
+        }
+
+        int top = CHART_TOP;
+        int bottom = CHART_BOTTOM + extra();
+        int h = bottom - top;
+        long scale = niceCeiling(max);
+        g.fill(CHART_LEFT - 1, top - 1, CHART_RIGHT + 1, bottom + 1, 0xFF101010);
+        // Gitterlinien bei der Hälfte und am oberen Ende der Achse.
+        for (int step = 1; step <= 2; step++) {
+            int y = bottom - h * step / 2;
+            g.fill(CHART_LEFT, y, CHART_RIGHT, y + 1, 0x30FFFFFF);
+            String value = Gui.compact(scale * step / 2);
+            g.text(font, value, CHART_LEFT - 3 - font.width(value), Math.max(top - 4, y - 4), Gui.MUTED, false);
+        }
+        String zero = "0";
+        g.text(font, zero, CHART_LEFT - 3 - font.width(zero), bottom - 8, Gui.MUTED, false);
+
+        int column = (CHART_RIGHT - CHART_LEFT) / n;
+        int left = CHART_RIGHT - column * n;
+        int hovered = mouseX >= left && mouseX < CHART_RIGHT && mouseY >= top && mouseY < bottom ? (mouseX - left) / column : -1;
+        for (int i = 0; i < n; i++) {
+            CompoundTag day = days.getCompoundOrEmpty(i);
+            int x0 = left + i * column;
+            int x1 = x0 + column;
+            if (i == hovered) {
+                g.fill(x0, top, x1, bottom, 0x20FFFFFF);
+            }
+            int barLeft = x0 + 2;
+            int barRight = x1 - 2;
+            long sales = day.getLongOr("sales", 0);
+            long dayTotal = total(day);
+            if (dayTotal <= 0) {
+                g.fill(barLeft, bottom - 1, barRight, bottom, 0x40FFFFFF);
+                continue;
+            }
+            int totalHeight = Math.max(1, (int) Math.round(h * (double) dayTotal / scale));
+            int salesHeight = (int) Math.round(h * (double) sales / scale);
+            // Vergangene Tage etwas gedämpft, damit der laufende Tag heraussticht.
+            int alpha = i == n - 1 || i == hovered ? 0xFF000000 : 0xC0000000;
+            g.fill(barLeft, bottom - totalHeight, barRight, bottom - salesHeight, (Gui.GOOD & 0x00FFFFFF) | alpha);
+            g.fill(barLeft, bottom - salesHeight, barRight, bottom, (Gui.GOLD & 0x00FFFFFF) | alpha);
+        }
+
+        Component first = Component.translatable("dtp.stats.income.day", days.getCompoundOrEmpty(0).getIntOr("day", 0));
+        g.text(font, first, left, bottom + 3, Gui.MUTED, false);
+        Component today = Component.translatable("dtp.market.chart.today");
+        g.text(font, today, CHART_RIGHT - font.width(today), bottom + 3, Gui.MUTED, false);
+
+        if (hovered >= 0) {
+            CompoundTag day = days.getCompoundOrEmpty(hovered);
+            List<FormattedCharSequence> lines = new ArrayList<>();
+            int number = day.getIntOr("day", 0);
+            lines.add(Component.translatable(hovered == n - 1 ? "dtp.stats.income.today" : "dtp.stats.income.day", number).getVisualOrderText());
+            lines.add(Money.component(total(day)).copy().withColor(Gui.TEXT).getVisualOrderText());
+            lines.add(Component.translatable("dtp.stats.income.sales", Money.component(day.getLongOr("sales", 0)))
+                    .withColor(Gui.GOLD).getVisualOrderText());
+            lines.add(Component.translatable("dtp.stats.income.contracts", Money.component(day.getLongOr("contracts", 0)))
+                    .withColor(Gui.GOOD).getVisualOrderText());
+            g.setTooltipForNextFrame(lines, mouseX, mouseY);
+        }
+    }
+
+    private static long total(CompoundTag day) {
+        return day.getLongOr("sales", 0) + day.getLongOr("contracts", 0);
+    }
+
+    /** Kleinster Wert der Form 1, 2 oder 5 × 10ⁿ, der {@code value} erreicht — mindestens 10, damit die halbe Achse ganzzahlig bleibt. */
+    static long niceCeiling(long value) {
+        long magnitude = 1;
+        while (true) {
+            for (long m : new long[] {1, 2, 5}) {
+                if (m * magnitude >= Math.max(10, value)) {
+                    return m * magnitude;
+                }
+            }
+            if (magnitude > Long.MAX_VALUE / 10) {
+                return value;
+            }
+            magnitude *= 10;
+        }
+    }
+
     /** Scrollleiste am rechten Rand — nur, wenn mehr Zeilen da sind als sichtbar. */
     private static void scrollbar(GuiGraphicsExtractor g, int top, int height, int size, int visible, int scroll) {
         if (size <= visible) {
@@ -362,7 +492,7 @@ public class StatisticsScreen extends PanelScreen<StatisticsMenu> {
         g.fill(x, thumbY, x + 3, thumbY + thumb, Gui.MUTED);
     }
 
-    private enum Tab { SALES, CONTRACTS }
+    private enum Tab { SALES, CONTRACTS, INCOME }
 
     private enum SortColumn { COUNT, TALER }
 }

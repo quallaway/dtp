@@ -29,10 +29,10 @@ import dev.dtp.upgrade.WorldProgress;
 
 /**
  * Statistik-Tafel: nur lesend, ohne Knöpfe zum Server. Reiter, Zeitraum, Gruppe und Sortierung wählt der Client;
- * der Datenstand enthält darum beide Zeiträume und die Marktgruppen.
+ * der Datenstand enthält darum beide Zeiträume, die Marktgruppen und die Einnahmen je Minecraft-Tag.
  *
- * <p>Der Datenstand wird nur neu gebaut, wenn sich die Statistik, der Markttag, die freigeschalteten Gruppen oder
- * die Contract-Gesamtzahl ändern — gesendet wird er wie überall einmal pro Sekunde.
+ * <p>Der Datenstand wird nur neu gebaut, wenn sich die Statistik, der Markttag, der Minecraft-Tag, die
+ * freigeschalteten Gruppen oder die Contract-Gesamtzahl ändern — gesendet wird er wie überall einmal pro Sekunde.
  */
 public class StatisticsMenu extends BlockBoundMenu {
     private CompoundTag cached;
@@ -51,7 +51,7 @@ public class StatisticsMenu extends BlockBoundMenu {
         MinecraftServer server = level.getServer();
         StatisticsData stats = StatisticsData.get(server);
         int total = WorldProgress.get(server).completedContracts();
-        String key = stats.revision() + "|" + BlackmarketData.today(server) + "|" + total
+        String key = stats.revision() + "|" + BlackmarketData.today(server) + "|" + StatisticsData.minecraftDay(server) + "|" + total
                 + "|" + MarketCategories.unlocked(server).size();
         if (cached == null || !key.equals(cachedKey)) {
             cached = build(server, stats, total);
@@ -67,6 +67,16 @@ public class StatisticsMenu extends BlockBoundMenu {
         tag.putInt("days", MarketData.HISTORY_DAYS);
         tag.put("recent", sales(stats.recentSales(server)));
         tag.put("all", sales(stats.allTimeSales()));
+        // Einnahmen je Minecraft-Tag, vom ältesten bis heute — immer HISTORY_DAYS Einträge.
+        ListTag income = new ListTag();
+        for (StatisticsData.DayIncome day : stats.dailyIncome(StatisticsData.minecraftDay(server))) {
+            CompoundTag e = new CompoundTag();
+            e.putInt("day", day.day());
+            e.putLong("sales", day.sales());
+            e.putLong("contracts", day.contracts());
+            income.add(e);
+        }
+        tag.put("income", income);
 
         int tiers = DtpConfig.TIER_VALUE.get().size();
         List<Map.Entry<UUID, StatisticsData.PlayerTally>> players = new ArrayList<>(stats.players().entrySet());

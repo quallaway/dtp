@@ -162,7 +162,7 @@ public final class Contracts {
         long payout = done.payout(mine.ownDay(), terms(player));
         mine.accepted().remove(index);
         mine.addCompleted(done.tier());
-        StatisticsData.get(server).recordContract(player.getUUID(), player.getGameProfile().name(), done.tier());
+        StatisticsData.get(server).recordContract(server, player.getUUID(), player.getGameProfile().name(), done.tier(), payout);
         WorldProgress progress = WorldProgress.get(server);
         progress.setCompletedContracts(progress.completedContracts() + 1);
         MarketEvents.onContractCompleted(server, done.tier());
