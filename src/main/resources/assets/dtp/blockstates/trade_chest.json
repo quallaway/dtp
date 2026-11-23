@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "dtp:block/trade_chest"
+    },
+    "facing=east": {
+      "model": "dtp:block/trade_chest",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "dtp:block/trade_chest",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "dtp:block/trade_chest",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "parent": "dtp:progression/first_sale",
+  "criteria": {
+    "contract": {
+      "trigger": "dtp:contract_completed"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "dtp:bulletin_board"
+    },
+    "title": {
+      "translate": "advancements.dtp.contract.title"
+    },
+    "description": {
+      "translate": "advancements.dtp.contract.description"
+    }
+  },
+  "requirements": [
+    [
+      "contract"
+    ]
+  ]
+}

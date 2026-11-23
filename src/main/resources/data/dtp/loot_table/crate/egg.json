@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:gift",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:egg",
+          "weight": 70
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blue_egg",
+          "weight": 35
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brown_egg",
+          "weight": 35
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:turtle_egg",
+          "weight": 40
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:sniffer_egg",
+          "weight": 18
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:dragon_egg",
+          "weight": 2
+        }
+      ]
+    }
+  ],
+  "random_sequence": "dtp:crate/egg"
+}

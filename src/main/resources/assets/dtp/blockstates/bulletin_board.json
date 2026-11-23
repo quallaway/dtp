@@ -1,0 +1,12 @@
+{
+  "multipart": [
+    {"when": {"facing": "north"}, "apply": {"model": "dtp:block/bulletin_board"}},
+    {"when": {"facing": "east"}, "apply": {"model": "dtp:block/bulletin_board", "y": 90}},
+    {"when": {"facing": "south"}, "apply": {"model": "dtp:block/bulletin_board", "y": 180}},
+    {"when": {"facing": "west"}, "apply": {"model": "dtp:block/bulletin_board", "y": 270}},
+    {"when": {"facing": "north", "flag": "true"}, "apply": {"model": "dtp:block/bulletin_board_flag_raised"}},
+    {"when": {"facing": "east", "flag": "true"}, "apply": {"model": "dtp:block/bulletin_board_flag_raised", "y": 90}},
+    {"when": {"facing": "south", "flag": "true"}, "apply": {"model": "dtp:block/bulletin_board_flag_raised", "y": 180}},
+    {"when": {"facing": "west", "flag": "true"}, "apply": {"model": "dtp:block/bulletin_board_flag_raised", "y": 270}}
+  ]
+}

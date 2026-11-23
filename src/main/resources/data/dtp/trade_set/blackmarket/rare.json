@@ -1,0 +1,5 @@
+{
+  "amount": 2,
+  "random_sequence": "dtp:trade_set/blackmarket/rare",
+  "trades": "#dtp:blackmarket/rare"
+}

@@ -1,0 +1,25 @@
+{
+  "values": [
+    "minecraft:wheat",
+    "minecraft:carrot",
+    "minecraft:potato",
+    "minecraft:poisonous_potato",
+    "minecraft:beetroot",
+    "minecraft:melon_slice",
+    "minecraft:pumpkin",
+    "minecraft:sugar_cane",
+    "minecraft:cactus",
+    "minecraft:bamboo",
+    "minecraft:kelp",
+    "minecraft:apple",
+    "minecraft:sweet_berries",
+    "minecraft:cocoa_beans",
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+    "minecraft:shelf_mushroom",
+    "minecraft:torchflower",
+    "minecraft:pitcher_plant",
+    "minecraft:resin_clump",
+    "minecraft:nether_wart"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "tab": "equipment",
+  "icon": {"sprite": "dtp:upgrade/durability"},
+  "x": 0,
+  "y": 1,
+  "max_level": 2,
+  "costs": [
+    10000,
+    40000
+  ],
+  "values": [
+    1,
+    2
+  ],
+  "level_positions": [
+    [
+      1,
+      1
+    ]
+  ]
+}

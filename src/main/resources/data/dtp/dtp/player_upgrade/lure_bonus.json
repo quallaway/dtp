@@ -1,0 +1,21 @@
+{
+  "tab": "equipment",
+  "icon": "minecraft:fishing_rod",
+  "x": 7,
+  "y": 0,
+  "max_level": 2,
+  "costs": [
+    8000,
+    60000
+  ],
+  "values": [
+    1,
+    2
+  ],
+  "level_positions": [
+    [
+      8,
+      0
+    ]
+  ]
+}

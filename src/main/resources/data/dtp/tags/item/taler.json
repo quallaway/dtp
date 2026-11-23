@@ -1,0 +1,13 @@
+{
+  "values": [
+    "dtp:copper_taler",
+    "dtp:copper_pouch",
+    "dtp:copper_sack",
+    "dtp:silver_taler",
+    "dtp:silver_pouch",
+    "dtp:silver_sack",
+    "dtp:gold_taler",
+    "dtp:gold_pouch",
+    "dtp:gold_sack"
+  ]
+}

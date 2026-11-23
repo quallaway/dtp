@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "minecraft:glass",
+    "T": "dtp:silver_pouch",
+    "E": "minecraft:ender_pearl",
+    "S": "minecraft:soul_sand"
+  },
+  "pattern": [
+    "GGG",
+    "TET",
+    "SSS"
+  ],
+  "result": {
+    "id": "dtp:chunk_loader"
+  }
+}

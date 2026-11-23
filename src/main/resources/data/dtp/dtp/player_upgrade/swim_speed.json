@@ -1,0 +1,27 @@
+{
+  "tab": "body",
+  "icon": "minecraft:prismarine_shard",
+  "x": 6,
+  "y": 1,
+  "max_level": 3,
+  "costs": [
+    3000,
+    10000,
+    30000
+  ],
+  "values": [
+    0.15,
+    0.3,
+    0.45
+  ],
+  "level_positions": [
+    [
+      6,
+      2
+    ],
+    [
+      6,
+      3
+    ]
+  ]
+}

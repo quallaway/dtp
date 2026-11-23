@@ -1,0 +1,12 @@
+{
+  "type": "dtp:structure_finds",
+  "chance": 0.2,
+  "min_charge_fraction": 0.25,
+  "max_charge_fraction": 0.75,
+  "exclude": [
+    "chests/spawn_bonus_chest",
+    "chests/village/",
+    "chests/trial_chambers/reward",
+    "chests/jungle_temple_dispenser"
+  ]
+}

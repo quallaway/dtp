@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:mul",
+  "inputs": [
+    {
+      "type": "minecraft:conditional",
+      "condition": "minecraft:block/fast_cooking",
+      "on_false": "minecraft:cooking/normal_speed_multiplier",
+      "on_true": "minecraft:cooking/fast_speed_multiplier"
+    },
+    {
+      "type": "dtp:server_upgrade",
+      "upgrade": "furnace_speed",
+      "values": [1.0, 1.25, 1.5],
+      "local": true
+    }
+  ]
+}

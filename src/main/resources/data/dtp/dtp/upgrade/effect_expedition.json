@@ -1,0 +1,14 @@
+{
+  "max_level": 1,
+  "base_cost": 12000,
+  "tab": "modules",
+  "icon": {"sprite": "dtp:upgrade/expedition_potions"},
+  "x": 5,
+  "y": 2,
+  "requires": [
+    {
+      "upgrade": "effect_slots",
+      "level": 1
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "max_charges": 256,
+  "cost_per_use": 1,
+  "cooldown_seconds": 0.25,
+  "charge_price": 10
+}

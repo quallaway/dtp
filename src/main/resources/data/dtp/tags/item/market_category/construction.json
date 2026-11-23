@@ -1,0 +1,24 @@
+{
+  "values": [
+    "minecraft:oak_log",
+    "minecraft:spruce_log",
+    "minecraft:birch_log",
+    "minecraft:jungle_log",
+    "minecraft:acacia_log",
+    "minecraft:dark_oak_log",
+    "minecraft:mangrove_log",
+    "minecraft:cherry_log",
+    "minecraft:pale_oak_log",
+    "minecraft:poplar_log",
+    "minecraft:crimson_stem",
+    "minecraft:warped_stem",
+    "minecraft:cobblestone",
+    "minecraft:netherrack",
+    "minecraft:obsidian",
+    "minecraft:mud",
+    "minecraft:clay",
+    "minecraft:pointed_dripstone",
+    "minecraft:sculk",
+    "minecraft:spore_blossom"
+  ]
+}

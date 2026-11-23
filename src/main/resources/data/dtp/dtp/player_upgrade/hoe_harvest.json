@@ -1,0 +1,27 @@
+{
+  "tab": "farm",
+  "icon": "minecraft:iron_hoe",
+  "x": 0,
+  "y": 0,
+  "max_level": 3,
+  "costs": [
+    5000,
+    20000,
+    60000
+  ],
+  "values": [
+    1,
+    2,
+    3
+  ],
+  "level_positions": [
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ]
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "max_level": 2,
+  "costs": [
+    75000,
+    250000
+  ],
+  "tab": "world",
+  "icon": "minecraft:experience_bottle",
+  "x": 6,
+  "y": 2,
+  "level_positions": [
+    [
+      7,
+      2
+    ]
+  ]
+}

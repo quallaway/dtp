@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "dtp:block/statistics_board"
+    },
+    "facing=east": {
+      "model": "dtp:block/statistics_board",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "dtp:block/statistics_board",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "dtp:block/statistics_board",
+      "y": 270
+    }
+  }
+}

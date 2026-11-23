@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "N": "minecraft:iron_nugget",
+    "X": "minecraft:paper",
+    "P": "#minecraft:planks",
+    "T": "dtp:copper_taler"
+  },
+  "pattern": [
+    "NNN",
+    "XXX",
+    "PTP"
+  ],
+  "result": {
+    "id": "dtp:statistics_board"
+  }
+}

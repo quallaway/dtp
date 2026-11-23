@@ -1,0 +1,10 @@
+{
+  "tab": "trade",
+  "icon": "minecraft:clock",
+  "x": 1,
+  "y": 3,
+  "max_level": 1,
+  "costs": [
+    3000
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "dtp:progression/deposit_chest",
+  "criteria": {
+    "gold_taler": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "dtp:gold_taler"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "dtp:gold_taler"
+    },
+    "title": {
+      "translate": "advancements.dtp.gold_taler.title"
+    },
+    "description": {
+      "translate": "advancements.dtp.gold_taler.description"
+    },
+    "frame": "goal"
+  },
+  "requirements": [
+    [
+      "gold_taler"
+    ]
+  ]
+}

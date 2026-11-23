@@ -1,0 +1,12 @@
+{
+  "wants": {
+    "id": "dtp:silver_pouch",
+    "count": 2
+  },
+  "gives": {
+    "id": "dtp:rain_catalyst",
+    "count": 2
+  },
+  "max_uses": 2,
+  "xp": 0
+}

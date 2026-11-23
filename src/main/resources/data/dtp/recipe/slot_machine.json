@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "P": "minecraft:glass_pane",
+    "G": "minecraft:gold_ingot",
+    "T": "dtp:copper_sack",
+    "L": "minecraft:lever",
+    "R": "minecraft:redstone"
+  },
+  "pattern": [
+    "IPI",
+    "GTL",
+    "IRI"
+  ],
+  "result": {
+    "id": "dtp:slot_machine"
+  }
+}

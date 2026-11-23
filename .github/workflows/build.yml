@@ -1,0 +1,58 @@
+# Baut den Mod und führt die GameTests aus — ohne und mit den optionalen Mods (-Pwith_compat=true).
+# Läuft bei jedem Push auf main, bei Pull Requests, per Hand (Actions → Build → Run workflow)
+# und als Teil von release.yml. Aufbau nach der GitHub-Actions-Vorlage des NeoForge-MDK.
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: build (compat=${{ matrix.compat }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        compat: [false, true]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup JDK 25
+        uses: actions/setup-java@v6
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+
+      # Cacht ~/.gradle mit den Minecraft- und NeoForge-Dateien (rund 1–2 GB), damit spätere Läufe schneller starten.
+      # Nur Läufe auf main schreiben den Cache, Pull Requests lesen ihn nur.
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+
+      # Client-Ressourcen lädt der Testserver nicht; die prüft das Skript (wie in scripts/gametests.sh).
+      # Unabhängig von den optionalen Mods, daher nur in einem Lauf.
+      - name: Check client assets
+        if: ${{ !matrix.compat }}
+        run: python3 scripts/check_assets.py
+
+      - name: Build and run GameTests
+        run: ./gradlew build runGameTestServer -Pwith_compat=${{ matrix.compat }}
+
+      # Die Jar ist in beiden Läufen gleich (die optionalen Mods stecken nie darin), daher nur einmal hochladen.
+      - name: Upload jar
+        if: ${{ !matrix.compat }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: dtp-jar
+          path: build/libs/dtp-*.jar
+          if-no-files-found: error
+          retention-days: 14

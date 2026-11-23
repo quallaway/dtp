@@ -1,0 +1,27 @@
+{
+  "tab": "equipment",
+  "icon": "minecraft:golden_pickaxe",
+  "x": 0,
+  "y": 0,
+  "max_level": 3,
+  "costs": [
+    10000,
+    40000,
+    120000
+  ],
+  "values": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "level_positions": [
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ]
+  ]
+}

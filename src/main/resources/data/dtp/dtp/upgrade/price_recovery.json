@@ -1,0 +1,15 @@
+{
+  "max_level": 2,
+  "base_cost": 200000,
+  "growth": 5.0,
+  "tab": "market",
+  "icon": {"sprite": "dtp:upgrade/price_trend"},
+  "x": 5,
+  "y": 1,
+  "level_positions": [
+    [
+      6,
+      1
+    ]
+  ]
+}

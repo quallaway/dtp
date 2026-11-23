@@ -1,0 +1,8 @@
+{
+  "max_level": 1,
+  "base_cost": 50000,
+  "tab": "world",
+  "icon": "minecraft:anvil",
+  "x": 5,
+  "y": 2
+}

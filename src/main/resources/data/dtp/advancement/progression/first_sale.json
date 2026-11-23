@@ -1,0 +1,24 @@
+{
+  "parent": "dtp:progression/market_stand",
+  "criteria": {
+    "first_sale": {
+      "trigger": "dtp:sold"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "dtp:copper_taler"
+    },
+    "title": {
+      "translate": "advancements.dtp.first_sale.title"
+    },
+    "description": {
+      "translate": "advancements.dtp.first_sale.description"
+    }
+  },
+  "requirements": [
+    [
+      "first_sale"
+    ]
+  ]
+}

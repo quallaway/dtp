@@ -1,0 +1,104 @@
+{
+  "enchantments": {
+    "below_max_factor": 0.6,
+    "values": {
+      "minecraft:unbreaking": 5000, "minecraft:respiration": 4000, "minecraft:aqua_affinity": 4000, "minecraft:thorns": 4000, "minecraft:flame": 4000, "minecraft:infinity": 6000, "minecraft:silk_touch": 6000, "minecraft:punch": 5000, "minecraft:fire_protection": 4000, "minecraft:blast_protection": 4000, "minecraft:projectile_protection": 4000,
+      "minecraft:protection": 8000, "minecraft:feather_falling": 10000, "minecraft:depth_strider": 7000, "minecraft:power": 7000, "minecraft:lure": 7000, "minecraft:luck_of_the_sea": 7000, "minecraft:loyalty": 8000, "minecraft:impaling": 5000, "minecraft:riptide": 8000, "minecraft:channeling": 6000,
+      "minecraft:efficiency": 8000, "minecraft:sharpness": 10000, "minecraft:fortune": 10000, "minecraft:looting": 12000, "minecraft:density": 8000, "minecraft:breach": 8000,
+      "minecraft:frost_walker": 10000, "minecraft:soul_speed": 15000, "minecraft:swift_sneak": 18000, "minecraft:wind_burst": 18000
+    }
+  },
+  "templates": [
+    { "item": "minecraft:oak_log",        "tier": [1, 2, 3], "key": "dtp:wood_log" },
+    { "item": "minecraft:white_wool",     "tier": [1, 2, 3], "key": "dtp:wool" },
+    { "item": "minecraft:egg",            "tier": [1, 2, 3], "key": "dtp:egg" },
+
+    { "item": "minecraft:wheat",          "tier": [1, 2   ] },
+    { "item": "minecraft:carrot",         "tier": [1, 2   ] },
+    { "item": "minecraft:potato",         "tier": [1, 2   ] },
+    { "item": "minecraft:beetroot",       "tier": [1, 2   ] },
+    { "item": "minecraft:sugar_cane",     "tier":  1        },
+    { "item": "minecraft:apple",          "tier":  1        },
+    { "item": "minecraft:sweet_berries",  "tier":  1        },
+
+    { "item": "minecraft:bone",           "tier": [1, 2   ] },
+    { "item": "minecraft:string",         "tier": [1, 2   ] },
+    { "item": "minecraft:rotten_flesh",   "tier": [1, 2   ] },
+    { "item": "minecraft:gunpowder",      "tier": [1, 2   ] },
+    
+    { "item": "minecraft:leather",        "tier": [1, 2   ] },
+    { "item": "minecraft:feather",        "tier": [1, 2   ] },
+    { "item": "minecraft:chicken",        "tier": [1, 2   ] },
+    { "item": "minecraft:porkchop",       "tier": [1, 2   ] },
+    { "item": "minecraft:mutton",         "tier": [1, 2   ] },
+    { "item": "minecraft:beef",           "tier": [1, 2   ] },
+    { "item": "minecraft:cod",            "tier": [1, 2   ] },
+    { "item": "minecraft:salmon",         "tier": [1, 2   ] },
+    { "item": "minecraft:ink_sac",        "tier":  1        },
+
+    { "item": "minecraft:coal",           "tier":  1        },
+    { "item": "minecraft:copper_ingot",   "tier": [1, 2   ] },
+
+    { "item": "minecraft:melon",          "tier":     2,     "min_count": 96, "max_count": 192, "reward_per_item": 43.9 },
+    { "item": "minecraft:bamboo",         "tier":     2     },
+    { "item": "minecraft:kelp",           "tier":     2     },
+    { "item": "minecraft:cocoa_beans",    "tier":     2     },
+    { "item": "minecraft:iron_ingot",     "tier":     2     },
+    { "item": "minecraft:honeycomb",      "tier":     2     },
+
+    { "item": "minecraft:gold_ingot",     "tier":     2     },
+    { "item": "minecraft:obsidian",       "tier":     2     },
+    { "item": "minecraft:nether_wart",    "tier":     2   ,  "unlock": { "dimension": "minecraft:the_nether" } },
+    { "item": "minecraft:blaze_rod",      "tier":        3,  "unlock": { "dimension": "minecraft:the_nether" } },
+    { "item": "minecraft:quartz",         "tier":        3,  "unlock": { "dimension": "minecraft:the_nether" } },
+
+    { "item": "minecraft:cake",                 "tier": 3, "min_count": 96,   "max_count": 160,  "reward_per_item": 185,  "weight": 2 },
+    { "item": "minecraft:pumpkin_pie",          "tier": 3, "min_count": 240,  "max_count": 432,  "reward_per_item": 57.6, "weight": 2 },
+    { "item": "minecraft:rabbit_stew",          "tier": 3, "min_count": 96,   "max_count": 160,  "reward_per_item": 177,  "weight": 2 },
+    { "item": "minecraft:mushroom_stew",        "tier": 3, "min_count": 96,   "max_count": 160,  "reward_per_item": 82,   "weight": 2 },
+    { "item": "minecraft:beetroot_soup",        "tier": 3, "min_count": 96,   "max_count": 160,  "reward_per_item": 157,  "weight": 2 },
+    { "item": "minecraft:cookie",               "tier": 3, "min_count": 1984, "max_count": 3680, "reward_per_item": 6.8,  "weight": 2 },
+    { "item": "minecraft:bread",                "tier": 3, "min_count": 256,  "max_count": 480,  "reward_per_item": 51.6, "weight": 2 },
+    { "item": "minecraft:baked_potato",         "tier": 3, "min_count": 880,  "max_count": 1632, "reward_per_item": 15.4, "weight": 2 },
+    { "item": "minecraft:golden_carrot",        "tier": 3, "min_count": 60,   "max_count": 112,  "reward_per_item": 222,  "weight": 2 },
+    { "item": "minecraft:golden_apple",         "tier": 3, "min_count": 8,    "max_count": 12,   "reward_per_item": 2063, "weight": 2 },
+
+    { "item": "minecraft:writable_book",        "tier": 3, "min_count": 44,   "max_count": 80,   "reward_per_item": 347,  "weight": 2 },
+    { "item": "minecraft:minecart",             "tier": 3, "min_count": 16,   "max_count": 32,   "reward_per_item": 828,  "weight": 2 },
+    { "item": "minecraft:firework_rocket",      "tier": 3, "min_count": 304,  "max_count": 560,  "reward_per_item": 45.1, "weight": 2 },
+    { "item": "minecraft:dried_kelp_block",     "tier": 3, "min_count": 656,  "max_count": 1232, "reward_per_item": 20.4, "weight": 2 },
+    { "item": "minecraft:tnt",                  "tier": 3, "min_count": 20,   "max_count": 40,   "reward_per_item": 616,  "weight": 2 },
+
+    { "item": "minecraft:enchanted_book",       "tier": 4, "reward_per_item": 3000, "min_count": 4, "max_count": 8, "weight": 8 },
+    { "item": "minecraft:enchanted_book",       "tier": 4, "reward_per_item": 8000, "random_enchantments": { "count": 2 }, "weight": 3 },
+    { "item": "minecraft:enchanted_book",       "tier": 4, "reward_per_item": 8000, "random_enchantments": { "count": 3 }, "weight": 2 },
+    { "item": "minecraft:fishing_rod",          "tier": 4, "reward_per_item": 11000, "random_enchantments": { "count": 3 } },
+    { "item": "minecraft:fishing_rod",          "tier": 4, "reward_per_item": 11000, "random_enchantments": { "count": 3 } },
+    { "item": "minecraft:bow",                  "tier": 4, "reward_per_item": 11000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:bow",                  "tier": 4, "reward_per_item": 11000, "random_enchantments": { "count": 3 } },
+  
+    { "item": "minecraft:trident",              "tier": 4, "reward_per_item": 65000, "random_enchantments": { "count": 1 } },
+    { "item": "minecraft:trident",              "tier": 4, "reward_per_item": 70000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:elytra",               "tier": 4, "reward_per_item": 230000, "random_enchantments": { "count": 1 } },
+    { "item": "minecraft:mace",                 "tier": 4, "reward_per_item": 120000, "random_enchantments": { "count": 1 } },
+    { "item": "minecraft:mace",                 "tier": 4, "reward_per_item": 150000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:diamond_helmet",       "tier": 4, "reward_per_item": 50000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:diamond_helmet",       "tier": 4, "reward_per_item": 55000, "random_enchantments": { "count": 3 } },
+    { "item": "minecraft:diamond_chestplate",   "tier": 4, "reward_per_item": 60000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:diamond_chestplate",   "tier": 4, "reward_per_item": 65000, "random_enchantments": { "count": 3 } },
+    { "item": "minecraft:diamond_leggings",     "tier": 4, "reward_per_item": 55000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:diamond_leggings",     "tier": 4, "reward_per_item": 60000, "random_enchantments": { "count": 3 } },
+    { "item": "minecraft:diamond_boots",        "tier": 4, "reward_per_item": 50000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:diamond_boots",        "tier": 4, "reward_per_item": 55000, "random_enchantments": { "count": 3 } },
+
+    { "item": "minecraft:netherite_helmet",     "tier": 4, "reward_per_item": 150000 },
+    { "item": "minecraft:netherite_helmet",     "tier": 4, "reward_per_item": 150000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:netherite_helmet",     "tier": 4, "reward_per_item": 160000, "random_enchantments": { "count": 3 } },
+    { "item": "minecraft:netherite_chestplate", "tier": 4, "reward_per_item": 170000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:netherite_chestplate", "tier": 4, "reward_per_item": 180000, "random_enchantments": { "count": 3 } },
+    { "item": "minecraft:netherite_leggings",   "tier": 4, "reward_per_item": 160000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:netherite_leggings",   "tier": 4, "reward_per_item": 170000, "random_enchantments": { "count": 3 } },
+    { "item": "minecraft:netherite_boots",      "tier": 4, "reward_per_item": 150000, "random_enchantments": { "count": 2 } },
+    { "item": "minecraft:netherite_boots",      "tier": 4, "reward_per_item": 160000, "random_enchantments": { "count": 3 } }
+  ]  
+}

@@ -1,0 +1,14 @@
+{
+  "max_level": 1,
+  "base_cost": 8000,
+  "tab": "modules",
+  "icon": {"sprite": "minecraft:mob_effect/water_breathing"},
+  "x": 1,
+  "y": 0,
+  "requires": [
+    {
+      "upgrade": "effect_slots",
+      "level": 1
+    }
+  ]
+}

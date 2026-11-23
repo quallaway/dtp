@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Prüfung vor jedem Push. Einschalten (einmalig): git config core.hooksPath .githooks
+#
+# Führt die GameTests aus (scripts/gametests.sh, ohne optionale Mods — die Variante mit ihnen prüft GitHub Actions).
+# Entfällt, wenn nur Tags gepusht oder Refs gelöscht werden.
+#
+# Ein Fehler bricht den Push ab. Notausgang: git push --no-verify
+# Der Hook testet den Arbeitsstand, nicht den gepushten Commit — bei uncommitteten Änderungen gibt es eine Warnung.
+# Die verlässliche Prüfung ist GitHub Actions (.github/workflows/build.yml).
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+ZERO="0000000000000000000000000000000000000000"
+
+# Gepushte Refs zuerst vollständig lesen; Gradle soll stdin nicht sehen.
+mapfile -t REFS
+
+fail() {
+    echo "pre-push: $*" >&2
+    echo "pre-push: Push abgebrochen. Notausgang: git push --no-verify" >&2
+    exit 1
+}
+
+run_tests=0
+for line in "${REFS[@]}"; do
+    read -r local_ref local_sha remote_ref remote_sha <<< "$line"
+    [[ "$local_sha" == "$ZERO" ]] && continue   # Ref wird gelöscht
+    [[ "$local_ref" == refs/tags/* ]] || run_tests=1
+done
+
+if [[ $run_tests -eq 0 ]]; then
+    echo "pre-push: Nur Tags oder Löschungen — GameTests übersprungen."
+    exit 0
+fi
+
+if ! git diff --quiet HEAD -- src build.gradle gradle.properties settings.gradle \
+        || [[ -n "$(git ls-files --others --exclude-standard -- src)" ]]; then
+    echo "pre-push: WARNUNG — uncommittete Änderungen in src/ oder den Build-Dateien." >&2
+    echo "pre-push: Getestet wird der Arbeitsstand, nicht genau der gepushte Commit." >&2
+fi
+
+echo "pre-push: Starte GameTests (scripts/gametests.sh) ..."
+scripts/gametests.sh < /dev/null || fail "GameTests fehlgeschlagen (Log: build/gametests.log)."

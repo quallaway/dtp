@@ -1,0 +1,35 @@
+{
+  "tab": "body",
+  "icon": {"sprite": "dtp:upgrade/heal_pulse"},
+  "x": 3,
+  "y": 2,
+  "max_level": 2,
+  "costs": [
+    20000,
+    80000
+  ],
+  "requires": [
+    {
+      "upgrade": "module_slots",
+      "level": 1
+    }
+  ],
+  "params": {
+    "regeneration": [
+      1,
+      2
+    ],
+    "duration": [
+      30,
+      30
+    ],
+    "radius": 6,
+    "cooldown": 60
+  },
+  "level_positions": [
+    [
+      3,
+      3
+    ]
+  ]
+}

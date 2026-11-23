@@ -1,0 +1,8 @@
+{
+  "max_level": 1,
+  "base_cost": 5000,
+  "tab": "market",
+  "icon": {"sprite": "dtp:upgrade/market_scale"},
+  "x": 0,
+  "y": 2
+}

@@ -1,0 +1,17 @@
+{
+  "max_level": 2,
+  "costs": [
+    200000,
+    500000
+  ],
+  "tab": "market",
+  "icon": {"sprite": "dtp:upgrade/contract_quality"},
+  "x": 5,
+  "y": 2,
+  "level_positions": [
+    [
+      6,
+      2
+    ]
+  ]
+}

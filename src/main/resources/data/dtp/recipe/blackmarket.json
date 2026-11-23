@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": "minecraft:black_wool",
+    "M": "dtp:market_stand",
+    "K": "dtp:silver_sack",
+    "E": "minecraft:enchanting_table",
+    "O": "minecraft:crying_obsidian"
+  },
+  "pattern": [
+    "WWW",
+    "MKE",
+    "OOO"
+  ],
+  "result": {
+    "id": "dtp:blackmarket"
+  }
+}

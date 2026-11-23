@@ -1,0 +1,14 @@
+{
+  "max_level": 1,
+  "base_cost": 8000,
+  "tab": "modules",
+  "icon": "minecraft:phantom_membrane",
+  "x": 4,
+  "y": 2,
+  "requires": [
+    {
+      "upgrade": "effect_slots",
+      "level": 1
+    }
+  ]
+}

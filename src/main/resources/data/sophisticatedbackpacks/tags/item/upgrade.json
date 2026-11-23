@@ -1,0 +1,6 @@
+{
+  "values": [
+    { "id": "dtp:trade_chest_upgrade", "required": false },
+    { "id": "dtp:deposit_chest_upgrade", "required": false }
+  ]
+}

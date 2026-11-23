@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "dtp:block/repair_station_side",
+    "north": "dtp:block/repair_station_front",
+    "south": "dtp:block/repair_station_back",
+    "east": "dtp:block/repair_station_side",
+    "west": "dtp:block/repair_station_side",
+    "up": "dtp:block/repair_station_top",
+    "down": "dtp:block/repair_station_bottom"
+  }
+}

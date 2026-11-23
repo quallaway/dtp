@@ -1,0 +1,20 @@
+{
+  "tab": "equipment",
+  "icon": {"sprite": "dtp:upgrade/fishing_net"},
+  "x": 8,
+  "y": 3,
+  "max_level": 1,
+  "costs": [
+    30000
+  ],
+  "requires": [
+    {
+      "upgrade": "module_slots",
+      "level": 1
+    }
+  ],
+  "params": {
+    "radius": 6,
+    "cooldown": 5
+  }
+}

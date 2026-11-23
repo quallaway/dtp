@@ -1,0 +1,16 @@
+{
+  "tab": "equipment",
+  "icon": "minecraft:diamond_shovel",
+  "x": 5,
+  "y": 3,
+  "max_level": 1,
+  "costs": [
+    40000
+  ],
+  "requires": [
+    {
+      "upgrade": "module_slots",
+      "level": 1
+    }
+  ]
+}

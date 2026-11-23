@@ -1,0 +1,5 @@
+{
+  "icon": "minecraft:chorus_fruit",
+  "order": 85,
+  "unlock": { "dragon_killed": true }
+}

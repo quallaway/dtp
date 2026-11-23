@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "dtp:block/blackmarket_side",
+    "north": "dtp:block/blackmarket_front",
+    "south": "dtp:block/blackmarket_back",
+    "east": "dtp:block/blackmarket_side",
+    "west": "dtp:block/blackmarket_side",
+    "up": "dtp:block/blackmarket_top",
+    "down": "dtp:block/blackmarket_bottom"
+  }
+}

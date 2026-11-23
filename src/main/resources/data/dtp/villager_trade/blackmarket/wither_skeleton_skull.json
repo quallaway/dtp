@@ -1,0 +1,12 @@
+{
+  "wants": {
+    "id": "dtp:silver_pouch",
+    "count": 4
+  },
+  "gives": {
+    "id": "minecraft:wither_skeleton_skull",
+    "count": 1
+  },
+  "max_uses": 1,
+  "xp": 0
+}

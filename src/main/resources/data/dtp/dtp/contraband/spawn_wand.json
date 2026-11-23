@@ -1,0 +1,11 @@
+{
+  "max_charges": 16,
+  "cost_per_use": 1,
+  "cooldown_seconds": 5,
+  "charge_price": 300,
+  "params": {
+    "radius": 16,
+    "seconds": 10,
+    "max_marks": 400
+  }
+}

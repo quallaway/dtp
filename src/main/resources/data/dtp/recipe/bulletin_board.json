@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": "#minecraft:planks",
+    "X": "minecraft:paper",
+    "T": "dtp:copper_taler"
+  },
+  "pattern": [
+    "PXP",
+    "XTX",
+    "PPP"
+  ],
+  "result": {
+    "id": "dtp:bulletin_board"
+  }
+}

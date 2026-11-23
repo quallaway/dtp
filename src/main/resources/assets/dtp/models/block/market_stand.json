@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "dtp:block/market_stand_side",
+    "north": "dtp:block/market_stand_front",
+    "south": "dtp:block/market_stand_back",
+    "east": "dtp:block/market_stand_side",
+    "west": "dtp:block/market_stand_side",
+    "up": "dtp:block/market_stand_top",
+    "down": "dtp:block/market_stand_bottom"
+  }
+}

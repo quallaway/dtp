@@ -1,0 +1,6 @@
+{
+  "type": "dtp:merchant_goods",
+  "tables": [
+    "minecraft:gameplay/hero_of_the_village/"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "dtp:block/upgrade_table_left",
+    "north": "dtp:block/upgrade_table_front",
+    "south": "dtp:block/upgrade_table_back",
+    "east": "dtp:block/upgrade_table_left",
+    "west": "dtp:block/upgrade_table_right",
+    "up": "dtp:block/upgrade_table_top",
+    "down": "dtp:block/upgrade_table_bottom"
+  }
+}

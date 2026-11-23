@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "dtp:block/relay_beacon"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "dtp:beacon_shaped",
+  "category": "misc",
+  "key": {
+    "G": "minecraft:glass",
+    "C": "minecraft:copper_ingot",
+    "K": "minecraft:copper_block",
+    "S": "minecraft:stone_bricks"
+  },
+  "pattern": [
+    "GGG",
+    "CKC",
+    "SSS"
+  ],
+  "result": {
+    "id": "dtp:beacon"
+  }
+}

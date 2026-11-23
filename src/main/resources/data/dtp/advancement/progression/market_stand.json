@@ -1,0 +1,30 @@
+{
+  "parent": "dtp:progression/beacon",
+  "criteria": {
+    "market_stand": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "dtp:market_stand"
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "dtp:market_stand"
+    },
+    "title": {
+      "translate": "advancements.dtp.market_stand.title"
+    },
+    "description": {
+      "translate": "advancements.dtp.market_stand.description"
+    }
+  },
+  "requirements": [
+    [
+      "market_stand"
+    ]
+  ]
+}

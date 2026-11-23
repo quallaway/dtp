@@ -1,0 +1,8 @@
+{
+  "max_level": 1,
+  "base_cost": 20000,
+  "tab": "world",
+  "icon": "minecraft:creeper_spawn_egg",
+  "x": 1,
+  "y": 2
+}

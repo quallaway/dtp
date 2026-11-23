@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "dtp_taler",
+  "category": "misc",
+  "ingredients": [
+    "dtp:copper_pouch"
+  ],
+  "result": {
+    "id": "dtp:copper_taler",
+    "count": 9
+  }
+}

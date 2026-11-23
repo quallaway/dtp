@@ -1,0 +1,21 @@
+{
+  "tab": "equipment",
+  "icon": {"sprite": "dtp:upgrade/treasure_chest"},
+  "x": 7,
+  "y": 2,
+  "max_level": 2,
+  "costs": [
+    40000,
+    120000
+  ],
+  "values": [
+    0.04,
+    0.08
+  ],
+  "level_positions": [
+    [
+      8,
+      2
+    ]
+  ]
+}

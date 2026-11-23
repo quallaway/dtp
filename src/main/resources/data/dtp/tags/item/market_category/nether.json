@@ -1,0 +1,22 @@
+{
+  "values": [
+    "minecraft:blaze_rod",
+    "minecraft:quartz",
+    "minecraft:glowstone_dust",
+    "minecraft:netherite_scrap",
+    "minecraft:nether_wart",
+    "minecraft:ghast_tear",
+    "minecraft:netherrack",
+    "minecraft:crimson_fungus",
+    "minecraft:warped_fungus",
+    "minecraft:crimson_stem",
+    "minecraft:warped_stem",
+    "minecraft:wither_skeleton_skull",
+    "minecraft:piglin_head",
+    "minecraft:music_disc_pigstep",
+    "minecraft:piglin_banner_pattern",
+    "minecraft:snout_armor_trim_smithing_template",
+    "minecraft:rib_armor_trim_smithing_template",
+    "minecraft:netherite_upgrade_smithing_template"
+  ]
+}

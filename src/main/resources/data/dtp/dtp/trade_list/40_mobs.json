@@ -1,0 +1,19 @@
+{
+  "entries": [
+    { "item": "minecraft:totem_of_undying",                      "base": 600,     "h": 10,     "t": 10 },
+    { "item": "minecraft:rotten_flesh",                          "base": 18.3,    "h": 100,    "t": 4 },
+    { "item": "minecraft:bone",                                  "base": 24.7,    "h": 100,    "t": 4 },
+    { "item": "minecraft:gunpowder",                             "base": 44,      "h": 100,    "t": 4 },
+    { "item": "minecraft:spider_eye",                            "base": 28.3,    "h": 100,    "t": 4 },
+    { "item": "minecraft:string",                                "base": 24.7,    "h": 100,    "t": 4 },
+    { "item": "minecraft:phantom_membrane",                      "base": 212,     "h": 40,     "t": 4 },
+    { "item": "minecraft:ender_pearl",                           "base": 161,     "h": 40,     "t": 4 },
+    { "item": "minecraft:breeze_rod",                            "base": 212,     "h": 40,     "t": 4 },
+    { "item": "minecraft:slime_ball",                            "base": 56.6,    "h": 100,    "t": 4 },
+    { "item": "minecraft:ghast_tear",                            "base": 354,     "h": 40,     "t": 4 },
+    { "item": "minecraft:blaze_rod",                             "base": 181,     "h": 40,     "t": 4 },
+    { "item": "minecraft:prismarine_crystals",                   "base": 46.4,    "h": 100,    "t": 4 },
+    { "item": "minecraft:prismarine_shard",                      "base": 33.2,    "h": 100,    "t": 4 },
+    { "item": "minecraft:shulker_shell",                         "base": 630,     "h": 40,     "t": 4 }
+  ]
+}

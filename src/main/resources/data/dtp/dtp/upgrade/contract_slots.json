@@ -1,0 +1,28 @@
+{
+  "max_level": 4,
+  "costs": [
+    8000,
+    25000,
+    60000,
+    120000
+  ],
+  "tab": "market",
+  "icon": {"sprite": "dtp:upgrade/pinned_note"},
+  "x": 0,
+  "y": 1,
+  "level_positions": [
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      3,
+      1
+    ]
+
+  ]
+}

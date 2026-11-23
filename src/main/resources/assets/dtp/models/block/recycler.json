@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "dtp:block/recycler_side",
+    "north": "dtp:block/recycler_front",
+    "south": "dtp:block/recycler_back",
+    "east": "dtp:block/recycler_side",
+    "west": "dtp:block/recycler_side",
+    "up": "dtp:block/recycler_top",
+    "down": "dtp:block/recycler_bottom"
+  }
+}

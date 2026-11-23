@@ -1,0 +1,101 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {"particle": "dtp:block/slot_machine_side", "front": "dtp:block/slot_machine_front", "back": "dtp:block/slot_machine_back", "side": "dtp:block/slot_machine_side", "top": "dtp:block/slot_machine_top", "bottom": "dtp:block/slot_machine_bottom", "lever": "dtp:block/slot_machine_lever"},
+  "elements": [
+    {
+      "__comment": "Gehäuse; seine Vorderfläche ist die Rückwand des Walzenfensters",
+      "from": [0, 0, 1],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#front"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#back", "cullface": "south"},
+        "east": {"uv": [0, 0, 15, 16], "texture": "#side", "cullface": "east"},
+        "west": {"uv": [1, 0, 16, 16], "texture": "#side", "cullface": "west"},
+        "up": {"uv": [0, 1, 16, 16], "texture": "#top", "cullface": "up"},
+        "down": {"uv": [0, 0, 16, 15], "texture": "#bottom", "cullface": "down"}
+      }
+    },
+    {
+      "__comment": "Rahmen oben mit Schild",
+      "from": [0, 11, 0],
+      "to": [16, 16, 1],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 5], "texture": "#front", "cullface": "north"},
+        "up": {"uv": [0, 0, 16, 1], "texture": "#top", "cullface": "up"},
+        "east": {"uv": [15, 0, 16, 5], "texture": "#side", "cullface": "east"},
+        "west": {"uv": [0, 0, 1, 5], "texture": "#side", "cullface": "west"},
+        "down": {"uv": [0, 4, 16, 5], "texture": "#front"}
+      }
+    },
+    {
+      "__comment": "Rahmen unten mit Münzschlitz und Schale",
+      "from": [0, 0, 0],
+      "to": [16, 6, 1],
+      "faces": {
+        "north": {"uv": [0, 10, 16, 16], "texture": "#front", "cullface": "north"},
+        "down": {"uv": [0, 15, 16, 16], "texture": "#bottom", "cullface": "down"},
+        "east": {"uv": [15, 10, 16, 16], "texture": "#side", "cullface": "east"},
+        "west": {"uv": [0, 10, 1, 16], "texture": "#side", "cullface": "west"},
+        "up": {"uv": [0, 10, 16, 11], "texture": "#front"}
+      }
+    },
+    {
+      "__comment": "Rahmen links (vom Spieler aus)",
+      "from": [15, 6, 0],
+      "to": [16, 11, 1],
+      "faces": {
+        "north": {"uv": [0, 5, 1, 10], "texture": "#front", "cullface": "north"},
+        "east": {"uv": [15, 5, 16, 10], "texture": "#side", "cullface": "east"},
+        "west": {"uv": [0, 5, 1, 10], "texture": "#front"}
+      }
+    },
+    {
+      "__comment": "Rahmen rechts (vom Spieler aus)",
+      "from": [0, 6, 0],
+      "to": [1, 11, 1],
+      "faces": {
+        "north": {"uv": [15, 5, 16, 10], "texture": "#front", "cullface": "north"},
+        "west": {"uv": [0, 5, 1, 10], "texture": "#side", "cullface": "west"},
+        "east": {"uv": [15, 5, 16, 10], "texture": "#front"}
+      }
+    },
+    {
+      "__comment": "Hebellager an der rechten Seite",
+      "from": [-1, 7, 6],
+      "to": [0, 10, 10],
+      "faces": {
+        "west": {"uv": [0, 0, 4, 3], "texture": "#lever"},
+        "north": {"uv": [5, 0, 6, 3], "texture": "#lever"},
+        "south": {"uv": [5, 0, 6, 3], "texture": "#lever"},
+        "up": {"uv": [12, 0, 13, 4], "texture": "#lever"},
+        "down": {"uv": [12, 0, 13, 4], "texture": "#lever"}
+      }
+    },
+    {
+      "__comment": "Hebelstange oben",
+      "from": [-1.5, 10, 7.5],
+      "to": [-0.5, 14, 8.5],
+      "faces": {
+        "north": {"uv": [7, 0, 8, 4], "texture": "#lever"},
+        "south": {"uv": [7, 0, 8, 4], "texture": "#lever"},
+        "east": {"uv": [7, 0, 8, 4], "texture": "#lever"},
+        "west": {"uv": [7, 0, 8, 4], "texture": "#lever"},
+        "up": {"uv": [7, 0, 8, 1], "texture": "#lever"},
+        "down": {"uv": [7, 0, 8, 1], "texture": "#lever"}
+      }
+    },
+    {
+      "__comment": "Goldknauf",
+      "from": [-2, 13, 7],
+      "to": [0, 15, 9],
+      "faces": {
+        "north": {"uv": [9, 0, 11, 2], "texture": "#lever"},
+        "south": {"uv": [9, 0, 11, 2], "texture": "#lever"},
+        "east": {"uv": [9, 0, 11, 2], "texture": "#lever"},
+        "west": {"uv": [9, 0, 11, 2], "texture": "#lever"},
+        "down": {"uv": [9, 0, 11, 2], "texture": "#lever"},
+        "up": {"uv": [9, 2, 11, 4], "texture": "#lever"}
+      }
+    }
+  ]
+}

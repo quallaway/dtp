@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "active=false": {"model": "dtp:block/chunk_loader"},
+    "active=true": {"model": "dtp:block/chunk_loader"}
+  }
+}

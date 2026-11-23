@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": "#minecraft:wool",
+    "P": "#minecraft:planks",
+    "T": "minecraft:crafting_table"
+  },
+  "pattern": [
+    "WWW",
+    "PTP",
+    "P P"
+  ],
+  "result": {
+    "id": "dtp:market_stand"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "parent": "dtp:progression/root",
+  "criteria": {
+    "beacon": {
+      "trigger": "dtp:beacon_started"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "dtp:beacon"
+    },
+    "title": {
+      "translate": "advancements.dtp.beacon.title"
+    },
+    "description": {
+      "translate": "advancements.dtp.beacon.description"
+    },
+    "frame": "goal"
+  },
+  "requirements": [
+    [
+      "beacon"
+    ]
+  ]
+}

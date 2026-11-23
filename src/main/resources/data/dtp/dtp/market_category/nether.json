@@ -1,0 +1,5 @@
+{
+  "icon": "minecraft:blaze_rod",
+  "order": 80,
+  "unlock": { "dimension": "minecraft:the_nether" }
+}

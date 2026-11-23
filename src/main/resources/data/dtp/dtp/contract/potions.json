@@ -1,0 +1,27 @@
+{
+  "potions": {
+    "batch": 3, "awkward": 9.24, "bottle": 2.5,
+    "long": 12.49, "strong": 33.49, "splash": 44,
+    "reward_multiplier": 5, "surcharge": 80,
+    "max_count": 160, "capped_min": 96,
+    "values": {
+      "minecraft:swiftness":       { "ingredients": 5.1 },
+      "minecraft:leaping":         { "ingredients": 250 },
+      "minecraft:strength":        { "ingredients": 90.5 },
+      "minecraft:healing":         { "ingredients": 77.6 },
+      "minecraft:regeneration":    { "ingredients": 354 },
+      "minecraft:fire_resistance": { "ingredients": 147.1 },
+      "minecraft:water_breathing": { "ingredients": 36.2 },
+      "minecraft:night_vision":    { "ingredients": 80.6 },
+      "minecraft:invisibility":    { "ingredients": 119.0 },
+      "minecraft:weakness":        { "ingredients": 38.4, "awkward": false },
+      "minecraft:slow_falling":    { "ingredients": 212 },
+      "minecraft:poison":          { "ingredients": 28.3 },
+      "minecraft:harming":         { "ingredients": 66.7 },
+      "minecraft:slowness":        { "ingredients": 43.5 }
+    }
+  },
+  "templates": [
+    { "item": "minecraft:potion", "tier": 3, "random_potion": {}, "unlock": { "dimension": "minecraft:the_nether" }, "weight": 4 }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "tab": "equipment",
+  "icon": "minecraft:iron_sword",
+  "x": 4,
+  "y": 1,
+  "max_level": 2,
+  "costs": [
+    8000,
+    60000
+  ],
+  "values": [
+    1,
+    2
+  ],
+  "level_positions": [
+    [
+      5,
+      1
+    ]
+  ]
+}

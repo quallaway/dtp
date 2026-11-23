@@ -1,0 +1,19 @@
+{
+  "tab": "trade",
+  "icon": {"sprite": "dtp:upgrade/parcel"},
+  "x": 4,
+  "y": 3,
+  "max_level": 1,
+  "costs": [
+    10000
+  ],
+  "requires": [
+    {
+      "upgrade": "contract_clock",
+      "level": 1
+    }
+  ],
+  "params": {
+    "cooldown": 5
+  }
+}

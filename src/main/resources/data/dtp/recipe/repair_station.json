@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "dtp:copper_pouch",
+    "I": "minecraft:iron_ingot",
+    "G": "minecraft:grindstone",
+    "P": "#minecraft:planks"
+  },
+  "pattern": [
+    " C ",
+    "IGI",
+    "PPP"
+  ],
+  "result": {
+    "id": "dtp:repair_station"
+  }
+}

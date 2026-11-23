@@ -1,0 +1,18 @@
+{
+  "type": "dtp:upgrade_shaped",
+  "upgrade": "market_info",
+  "category": "redstone",
+  "key": {
+    "C": "minecraft:comparator",
+    "G": "minecraft:gold_ingot",
+    "S": "minecraft:smooth_stone_slab"
+  },
+  "pattern": [
+    "GGG",
+    " C ",
+    " S "
+  ],
+  "result": {
+    "id": "dtp:market_scale"
+  }
+}

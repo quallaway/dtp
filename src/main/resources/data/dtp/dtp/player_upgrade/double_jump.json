@@ -1,0 +1,19 @@
+{
+  "tab": "body",
+  "icon": {"sprite": "dtp:upgrade/double_jump"},
+  "x": 2,
+  "y": 0,
+  "max_level": 1,
+  "costs": [
+    10000
+  ],
+  "requires": [
+    {
+      "upgrade": "module_slots",
+      "level": 1
+    }
+  ],
+  "params": {
+    "strength": 0.6
+  }
+}

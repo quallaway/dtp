@@ -1,0 +1,10 @@
+{
+  "values": [
+    "dtp:market_stand",
+    "dtp:trade_chest",
+    "dtp:bulletin_board",
+    "dtp:statistics_board",
+    "dtp:upgrade_table",
+    "dtp:repair_station"
+  ]
+}

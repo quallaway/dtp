@@ -1,0 +1,59 @@
+# Legt zu einem Versions-Tag (v5.0.0) einen Release-ENTWURF mit der Jar an.
+# Ablauf: Tag prüfen → bauen und testen (build.yml) → Entwurf anlegen.
+# Veröffentlicht wird von Hand auf GitHub, nachdem die Notizen ergänzt sind.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  # Der Tag muss genau "v" + mod_version aus gradle.properties sein, sonst trägt der Release die falsche Jar.
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Compare tag with mod_version
+        id: version
+        run: |
+          version="$(sed -n 's/^mod_version=//p' gradle.properties | tr -d '[:space:]')"
+          if [ "$GITHUB_REF_NAME" != "v$version" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME passt nicht zu mod_version=$version in gradle.properties (erwartet: v$version)."
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+  test:
+    needs: check
+    uses: ./.github/workflows/build.yml
+
+  release:
+    needs: [check, test]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download jar
+        uses: actions/download-artifact@v8
+        with:
+          name: dtp-jar
+          path: dist
+
+      - name: Create draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.check.outputs.version }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.jar \
+            --repo "$GITHUB_REPOSITORY" \
+            --draft \
+            --verify-tag \
+            --title "DTP $VERSION" \
+            --generate-notes

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "dtp_taler",
+  "category": "misc",
+  "key": {
+    "#": "dtp:copper_pouch"
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "id": "dtp:copper_sack"
+  }
+}

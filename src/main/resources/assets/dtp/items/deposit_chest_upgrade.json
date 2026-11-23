@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "dtp:item/compat/deposit_chest_upgrade"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "max_level": 1,
+  "base_cost": 20000,
+  "tab": "modules",
+  "icon": "minecraft:wheat",
+  "x": 1,
+  "y": 2,
+  "requires": [
+    {
+      "upgrade": "effect_slots",
+      "level": 1
+    }
+  ]
+}

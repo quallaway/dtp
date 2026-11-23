@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "dtp_taler",
+  "category": "misc",
+  "ingredients": [
+    "dtp:gold_taler"
+  ],
+  "result": {
+    "id": "dtp:silver_sack",
+    "count": 9
+  }
+}

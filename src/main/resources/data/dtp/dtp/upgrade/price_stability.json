@@ -1,0 +1,15 @@
+{
+  "max_level": 2,
+  "base_cost": 100000,
+  "growth": 5.0,
+  "tab": "market",
+  "icon": {"sprite": "dtp:upgrade/crate_stack"},
+  "x": 5,
+  "y": 0,
+  "level_positions": [
+    [
+      6,
+      0
+    ]
+  ]
+}

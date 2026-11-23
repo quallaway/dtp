@@ -1,0 +1,22 @@
+{
+  "max_level": 3,
+  "costs": [
+    10000,
+    75000,
+    250000
+  ],
+  "tab": "modules",
+  "icon": "dtp:beacon",
+  "x": 0,
+  "y": 1,
+  "level_positions": [
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ]
+  ]
+}

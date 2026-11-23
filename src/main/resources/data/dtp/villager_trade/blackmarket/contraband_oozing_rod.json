@@ -1,0 +1,12 @@
+{
+  "wants": {
+    "id": "dtp:silver_pouch",
+    "count": 6
+  },
+  "gives": {
+    "id": "dtp:oozing_rod",
+    "count": 1
+  },
+  "max_uses": 1,
+  "xp": 0
+}

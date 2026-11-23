@@ -1,0 +1,21 @@
+{
+  "tab": "equipment",
+  "icon": "minecraft:iron_pickaxe",
+  "x": 0,
+  "y": 2,
+  "max_level": 2,
+  "costs": [
+    6000,
+    20000
+  ],
+  "values": [
+    8,
+    16
+  ],
+  "level_positions": [
+    [
+      1,
+      2
+    ]
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "max_level": 4,
+  "costs": [
+    1000,
+    12000,
+    40000,
+    100000
+  ],
+  "tab": "market",
+  "icon": "dtp:bulletin_board",
+  "x": 0,
+  "y": 0,
+  "level_positions": [
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      3,
+      0
+    ]
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "parent": "dtp:progression/server_upgrade",
+  "criteria": {
+    "relay_beacon": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "dtp:relay_beacon"
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "dtp:relay_beacon"
+    },
+    "title": {
+      "translate": "advancements.dtp.relay_beacon.title"
+    },
+    "description": {
+      "translate": "advancements.dtp.relay_beacon.description"
+    }
+  },
+  "requirements": [
+    [
+      "relay_beacon"
+    ]
+  ]
+}

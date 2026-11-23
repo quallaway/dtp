@@ -1,0 +1,19 @@
+{
+  "tab": "body",
+  "icon": "minecraft:firework_rocket",
+  "x": 3,
+  "y": 0,
+  "max_level": 1,
+  "costs": [
+    20000
+  ],
+  "requires": [
+    {
+      "upgrade": "module_slots",
+      "level": 1
+    }
+  ],
+  "params": {
+    "chance": 50
+  }
+}

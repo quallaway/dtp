@@ -1,0 +1,48 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:component",
+    "component": "dtp:crate_loot",
+    "cases": [
+      {
+        "when": "dtp:crate/egg",
+        "model": {
+          "type": "minecraft:model",
+          "model": "dtp:item/contraband_crate_egg"
+        }
+      },
+      {
+        "when": "dtp:crate/spawn_egg",
+        "model": {
+          "type": "minecraft:model",
+          "model": "dtp:item/contraband_crate_spawn_egg"
+        }
+      },
+      {
+        "when": "dtp:crate/sapling",
+        "model": {
+          "type": "minecraft:model",
+          "model": "dtp:item/contraband_crate_sapling"
+        }
+      },
+      {
+        "when": "dtp:crate/biome_plant",
+        "model": {
+          "type": "minecraft:model",
+          "model": "dtp:item/contraband_crate_biome_plant"
+        }
+      },
+      {
+        "when": "dtp:crate/bucket_animal",
+        "model": {
+          "type": "minecraft:model",
+          "model": "dtp:item/contraband_crate_bucket_animal"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "dtp:item/contraband_crate"
+    }
+  }
+}

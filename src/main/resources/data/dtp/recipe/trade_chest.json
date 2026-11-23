@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": "#minecraft:planks",
+    "I": "minecraft:iron_ingot",
+    "C": "minecraft:chest"
+  },
+  "pattern": [
+    "PIP",
+    "ICI",
+    "PIP"
+  ],
+  "result": {
+    "id": "dtp:trade_chest"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "tab": "equipment",
+  "icon": "minecraft:diamond_chestplate",
+  "x": 4,
+  "y": 2,
+  "max_level": 1,
+  "costs": [
+    20000
+  ],
+  "values": [
+    1
+  ]
+}

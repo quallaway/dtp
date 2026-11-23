@@ -1,0 +1,11 @@
+{
+  "values": [
+    "dtp:deposit_chest",
+    "dtp:relay_beacon",
+    "dtp:market_scale",
+    "dtp:blackmarket",
+    "dtp:chunk_loader",
+    "dtp:slot_machine",
+    "dtp:recycler"
+  ]
+}

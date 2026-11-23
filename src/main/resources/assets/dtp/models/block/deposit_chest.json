@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "dtp:block/deposit_chest_side",
+    "north": "dtp:block/deposit_chest_front",
+    "south": "dtp:block/deposit_chest_back",
+    "east": "dtp:block/deposit_chest_side",
+    "west": "dtp:block/deposit_chest_side",
+    "up": "dtp:block/deposit_chest_top",
+    "down": "dtp:block/deposit_chest_bottom"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "tab": "equipment",
+  "icon": "minecraft:heart_of_the_sea",
+  "x": 7,
+  "y": 1,
+  "max_level": 2,
+  "costs": [
+    15000,
+    75000
+  ],
+  "values": [
+    1,
+    2
+  ],
+  "level_positions": [
+    [
+      8,
+      1
+    ]
+  ]
+}

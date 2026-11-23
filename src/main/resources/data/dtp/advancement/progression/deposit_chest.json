@@ -1,0 +1,30 @@
+{
+  "parent": "dtp:progression/first_sale",
+  "criteria": {
+    "deposit_chest": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "dtp:deposit_chest"
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "dtp:deposit_chest"
+    },
+    "title": {
+      "translate": "advancements.dtp.deposit_chest.title"
+    },
+    "description": {
+      "translate": "advancements.dtp.deposit_chest.description"
+    }
+  },
+  "requirements": [
+    [
+      "deposit_chest"
+    ]
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "tab": "body",
+  "icon": {"sprite": "dtp:upgrade/dash"},
+  "x": 1,
+  "y": 0,
+  "max_level": 1,
+  "costs": [
+    12000
+  ],
+  "requires": [
+    {
+      "upgrade": "module_slots",
+      "level": 1
+    }
+  ],
+  "params": {
+    "strength": 1.0,
+    "lift": 0.25,
+    "cooldown": 4
+  }
+}

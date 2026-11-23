@@ -1,0 +1,27 @@
+{
+  "tab": "farm",
+  "icon": {"sprite": "dtp:upgrade/fast_growth"},
+  "x": 4,
+  "y": 0,
+  "max_level": 3,
+  "costs": [
+    3000,
+    12000,
+    40000
+  ],
+  "values": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "level_positions": [
+    [
+      5,
+      0
+    ],
+    [
+      6,
+      0
+    ]
+  ]
+}

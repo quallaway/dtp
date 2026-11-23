@@ -1,0 +1,24 @@
+{
+  "parent": "dtp:progression/deposit_chest",
+  "criteria": {
+    "personal_upgrade": {
+      "trigger": "dtp:player_upgrade"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "dtp:upgrade_table"
+    },
+    "title": {
+      "translate": "advancements.dtp.personal_upgrade.title"
+    },
+    "description": {
+      "translate": "advancements.dtp.personal_upgrade.description"
+    }
+  },
+  "requirements": [
+    [
+      "personal_upgrade"
+    ]
+  ]
+}

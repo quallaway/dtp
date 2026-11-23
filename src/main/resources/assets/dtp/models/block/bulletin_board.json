@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "dtp:block/bulletin_board_side",
+    "north": "dtp:block/bulletin_board_front",
+    "south": "dtp:block/bulletin_board_back",
+    "east": "dtp:block/bulletin_board_side",
+    "west": "dtp:block/bulletin_board_side",
+    "up": "dtp:block/bulletin_board_top",
+    "down": "dtp:block/bulletin_board_bottom"
+  }
+}

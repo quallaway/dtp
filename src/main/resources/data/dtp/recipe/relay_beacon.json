@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": "dtp:gold_taler",
+    "D": "minecraft:diamond_block",
+    "I": "minecraft:iron_block"
+  },
+  "pattern": [
+    " G ",
+    " D ",
+    "III"
+  ],
+  "result": {
+    "id": "dtp:relay_beacon"
+  }
+}

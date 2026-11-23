@@ -1,0 +1,18 @@
+{
+  "max_level": 2,
+  "costs": [
+    20000,
+    60000
+  ],
+  "tab": "world",
+  "icon": "minecraft:furnace",
+  "level_icons": ["minecraft:blast_furnace"],
+  "x": 3,
+  "y": 2,
+  "level_positions": [
+    [
+      4,
+      2
+    ]
+  ]
+}

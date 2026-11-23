@@ -1,0 +1,21 @@
+{
+  "tab": "equipment",
+  "icon": "minecraft:diamond_pickaxe",
+  "x": 4,
+  "y": 0,
+  "max_level": 2,
+  "costs": [
+    15000,
+    75000
+  ],
+  "values": [
+    1,
+    2
+  ],
+  "level_positions": [
+    [
+      5,
+      0
+    ]
+  ]
+}

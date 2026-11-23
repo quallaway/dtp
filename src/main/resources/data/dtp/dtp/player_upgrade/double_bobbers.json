@@ -1,0 +1,13 @@
+{
+  "tab": "equipment",
+  "icon": {"sprite": "dtp:upgrade/double_bobbers"},
+  "x": 7,
+  "y": 3,
+  "max_level": 1,
+  "costs": [
+    150000
+  ],
+  "values": [
+    2
+  ]
+}

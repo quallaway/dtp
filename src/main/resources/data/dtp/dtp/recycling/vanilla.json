@@ -1,0 +1,27 @@
+{
+  "entries": [
+    { "item": "minecraft:leather_helmet",          "scrap": 4.45 },
+    { "item": "minecraft:leather_chestplate",      "scrap": 7.08 },
+    { "item": "minecraft:leather_leggings",        "scrap": 6.2 },
+    { "item": "minecraft:leather_boots",           "scrap": 3.58 },
+    { "item": "minecraft:leather_horse_armor",     "scrap": 6.2 },
+    { "item": "minecraft:stone_sword",             "scrap": 0.12 },
+    { "item": "minecraft:stone_pickaxe",           "scrap": 0.2 },
+    { "item": "minecraft:stone_axe",               "scrap": 0.2 },
+    { "item": "minecraft:stone_shovel",            "scrap": 0.13 },
+    { "item": "minecraft:stone_hoe",               "scrap": 0.17 },
+    { "item": "minecraft:stone_spear",             "scrap": 0.13 },
+    { "item": "minecraft:saddle",                  "scrap": 8.14 },
+    { "item": "minecraft:carrot_on_a_stick",       "scrap": 1.87 },
+    { "item": "minecraft:warped_fungus_on_a_stick","scrap": 1.83 },
+    { "item": "minecraft:shield",                  "scrap": 3.42 },
+    { "item": "minecraft:shears",                  "scrap": 5.66 },
+    { "item": "minecraft:flint_and_steel",         "scrap": 2.83 },
+    { "item": "minecraft:tripwire_hook",           "scrap": 1.41 },
+    { "item": "minecraft:brush",                   "scrap": 0.79 },
+    { "item": "minecraft:diamond_horse_armor",     "scrap": 40 },
+    { "item": "minecraft:diamond_nautilus_armor",  "scrap": 40 },
+    { "item": "minecraft:netherite_horse_armor",   "scrap": 80 },
+    { "item": "minecraft:netherite_nautilus_armor", "scrap": 80 }
+  ]
+}

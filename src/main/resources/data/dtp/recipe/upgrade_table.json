@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "dtp:copper_sack",
+    "B": "minecraft:book",
+    "S": "minecraft:smithing_table",
+    "P": "#minecraft:planks"
+  },
+  "pattern": [
+    " C ",
+    "BSB",
+    "PPP"
+  ],
+  "result": {
+    "id": "dtp:upgrade_table"
+  }
+}

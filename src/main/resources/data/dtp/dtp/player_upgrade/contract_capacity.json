@@ -1,0 +1,21 @@
+{
+  "tab": "trade",
+  "icon": "minecraft:book",
+  "x": 1,
+  "y": 1,
+  "max_level": 2,
+  "costs": [
+    4000,
+    15000
+  ],
+  "values": [
+    1,
+    2
+  ],
+  "level_positions": [
+    [
+      2,
+      1
+    ]
+  ]
+}

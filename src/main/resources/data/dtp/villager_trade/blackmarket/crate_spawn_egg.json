@@ -1,0 +1,18 @@
+{
+  "wants": {
+    "id": "dtp:silver_pouch",
+    "count": 3
+  },
+  "gives": {
+    "id": "dtp:contraband_crate",
+    "count": 1,
+    "components": {
+      "dtp:crate_loot": "dtp:crate/spawn_egg",
+      "minecraft:item_name": {
+        "translate": "item.dtp.contraband_crate.spawn_egg"
+      }
+    }
+  },
+  "max_uses": 3,
+  "xp": 0
+}

@@ -1,0 +1,27 @@
+{
+  "tab": "farm",
+  "icon": "minecraft:white_wool",
+  "x": 4,
+  "y": 2,
+  "max_level": 3,
+  "costs": [
+    3000,
+    12000,
+    40000
+  ],
+  "values": [
+    1,
+    2,
+    3
+  ],
+  "level_positions": [
+    [
+      5,
+      2
+    ],
+    [
+      6,
+      2
+    ]
+  ]
+}

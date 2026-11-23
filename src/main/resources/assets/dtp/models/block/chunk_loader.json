@@ -1,0 +1,51 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "dtp:block/chunk_loader_base",
+    "glass": "dtp:block/chunk_loader_glass",
+    "base": "dtp:block/chunk_loader_base",
+    "core": "dtp:block/chunk_loader_core"
+  },
+  "elements": [
+    {
+      "__comment": "Obsidiansockel mit Einlage",
+      "from": [2, 0.1, 2],
+      "to": [14, 2, 14],
+      "faces": {
+        "north": {"uv": [2, 14, 14, 16], "texture": "#base"},
+        "south": {"uv": [2, 14, 14, 16], "texture": "#base"},
+        "west": {"uv": [2, 14, 14, 16], "texture": "#base"},
+        "east": {"uv": [2, 14, 14, 16], "texture": "#base"},
+        "up": {"uv": [2, 0, 14, 12], "texture": "#base"},
+        "down": {"uv": [2, 0, 14, 12], "texture": "#base"}
+      }
+    },
+    {
+      "__comment": "Podestring, über dem die Enderperle schwebt (Perle: ChunkLoaderRenderer)",
+      "from": [5, 2, 5],
+      "to": [11, 3, 11],
+      "faces": {
+        "north": {"uv": [0, 6, 6, 7], "texture": "#core"},
+        "south": {"uv": [0, 6, 6, 7], "texture": "#core"},
+        "west": {"uv": [0, 6, 6, 7], "texture": "#core"},
+        "east": {"uv": [0, 6, 6, 7], "texture": "#core"},
+        "up": {"uv": [0, 0, 6, 6], "texture": "#core"},
+        "down": {"uv": [0, 0, 6, 6], "texture": "#core"}
+      }
+    },
+    {
+      "__comment": "Glaskörper",
+      "from": [0, 0, 0],
+      "to": [16, 16, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 16, 16], "texture": "#glass", "cullface": "north"},
+        "south": {"uv": [0, 0, 16, 16], "texture": "#glass", "cullface": "south"},
+        "west": {"uv": [0, 0, 16, 16], "texture": "#glass", "cullface": "west"},
+        "east": {"uv": [0, 0, 16, 16], "texture": "#glass", "cullface": "east"},
+        "up": {"uv": [0, 0, 16, 16], "texture": "#glass", "cullface": "up"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#glass", "cullface": "down"}
+      }
+    }
+  ]
+}

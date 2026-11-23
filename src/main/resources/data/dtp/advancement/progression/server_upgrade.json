@@ -1,0 +1,24 @@
+{
+  "parent": "dtp:progression/deposit_chest",
+  "criteria": {
+    "server_upgrade": {
+      "trigger": "dtp:server_upgrade"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "dtp:beacon"
+    },
+    "title": {
+      "translate": "advancements.dtp.server_upgrade.title"
+    },
+    "description": {
+      "translate": "advancements.dtp.server_upgrade.description"
+    }
+  },
+  "requirements": [
+    [
+      "server_upgrade"
+    ]
+  ]
+}

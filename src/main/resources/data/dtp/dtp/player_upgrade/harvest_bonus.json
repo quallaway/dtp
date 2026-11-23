@@ -1,0 +1,33 @@
+{
+  "tab": "farm",
+  "icon": "minecraft:hay_block",
+  "x": 0,
+  "y": 2,
+  "max_level": 3,
+  "costs": [
+    8000,
+    30000,
+    90000
+  ],
+  "values": [
+    0.1,
+    0.2,
+    0.3
+  ],
+  "level_positions": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "requires": [
+    {
+      "upgrade": "hoe_harvest",
+      "level": 1
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "max_level": 1,
+  "base_cost": 8000,
+  "tab": "modules",
+  "icon": {"sprite": "minecraft:mob_effect/jump_boost"},
+  "x": 3,
+  "y": 0,
+  "requires": [
+    {
+      "upgrade": "effect_slots",
+      "level": 1
+    }
+  ]
+}
