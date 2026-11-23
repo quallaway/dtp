@@ -28,6 +28,7 @@ import java.util.Optional;
 import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import net.minecraft.advancements.predicates.DataComponentMatchers;
 import com.google.gson.JsonArray;
@@ -4080,11 +4081,14 @@ public final class DtpGameTests {
         // Ergebnis festlegen: Gewinn mit einem Silbertaler ergibt genau einen Silberbeutel.
         machine.start(level, player, Taler.SILVER_TALER, SlotMachine.Outcome.WIN, new int[] {2, 2, 2});
         AABB around = new AABB(pos).inflate(3);
+        // Die Teststruktur ist nur 1×1×1 groß, Nachbartests liegen wenige Blöcke entfernt: Was dort schon liegt, zählt nicht.
+        Set<ItemEntity> leftovers = new HashSet<>(level.getEntitiesOfClass(ItemEntity.class, around));
+        Supplier<List<ItemEntity>> ejected = () -> level.getEntitiesOfClass(ItemEntity.class, around, e -> !leftovers.contains(e));
         helper.runAfterDelay(SlotMachine.DURATION - 5, () -> {
-            helper.assertTrue(machine.spinning() && level.getEntitiesOfClass(ItemEntity.class, around).isEmpty(),
+            helper.assertTrue(machine.spinning() && ejected.get().isEmpty(),
                     "nothing is paid before the last reel stops");
             helper.runAfterDelay(8, () -> {
-                List<ItemEntity> drops = level.getEntitiesOfClass(ItemEntity.class, around);
+                List<ItemEntity> drops = ejected.get();
                 long paid = drops.stream().mapToLong(e -> Taler.valueOf(e.getItem())).sum();
                 boolean inFront = drops.stream().allMatch(e -> e.getZ() < pos.getZ() + 0.5);
                 drops.forEach(ItemEntity::discard);
