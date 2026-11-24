@@ -48,3 +48,6 @@ Kein Preis- oder Lohnvorteil, kein Malus für dezentrale Marktstände — beide 
 
 ## Monumentalprojekt
 
+## BUGS
+
+- Market Statistics are all counted towards Contracts

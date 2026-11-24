@@ -6975,6 +6975,22 @@ public final class DtpGameTests {
         helper.assertTrue(paid > 0 && todayIncome(server).sales() == salesBefore + paid,
                 "a sale counts as income today: " + salesBefore + " + " + paid + " -> " + todayIncome(server).sales());
 
+        // Mehrspieler: Verkäufe zweier Spieler zählen beide als Verkauf, keiner als Contract.
+        StatisticsData.DayIncome beforePlayers = todayIncome(server);
+        long revenue = 0;
+        for (int i = 0; i < 2; i++) {
+            Player seller = helper.makeMockPlayer(GameType.SURVIVAL);
+            seller.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.WHEAT, 16));
+            Sales.Result sold = Sales.sellFromHand(level, helper.absolutePos(BlockPos.ZERO), seller, Sales.HandMode.STACK);
+            helper.assertTrue(sold.revenue() > 0, "player " + i + " sells: " + sold);
+            revenue += sold.revenue();
+        }
+        StatisticsData.DayIncome afterPlayers = todayIncome(server);
+        helper.assertTrue(afterPlayers.sales() == beforePlayers.sales() + revenue,
+                "both players' sales count as sales: " + beforePlayers + " + " + revenue + " -> " + afterPlayers);
+        helper.assertTrue(afterPlayers.contracts() == beforePlayers.contracts(),
+                "sales never count as contracts: " + beforePlayers + " -> " + afterPlayers);
+
         // Eigene Instanz mit festen Tagen, damit weder die Weltzeit noch andere Tests hineinspielen.
         StatisticsData fresh = new StatisticsData();
         int d = 1000;

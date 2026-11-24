@@ -278,10 +278,10 @@ Umgesetzt als Reiter **Einnahmen**, siehe [Statistik-Tafel](18-statistik.md#einn
 
 - [x] 🔧 `StatisticsData` v2 mit Einnahmen je Minecraft-Tag (`Market.sell`, `Contracts.complete`), Datenstand `income`, Reiter mit Diagramm, Achse und Tooltip.
 - [x] 🔧 GameTest `statistics_income`; `contract_delivery` prüft den Lohn in den Einnahmen.
-- [ ] 🧪 Im Spiel: verkaufen und einen Contract abschließen, der heutige Balken wächst gestapelt (Gold unten, Grün oben).
-- [ ] 🧪 Schlafen oder `/time add 1d`: rechts entsteht ein neuer Balken, die übrigen rücken nach links, die Achse skaliert neu.
-- [ ] 🧪 Hover zeigt Tag, Summe und Aufteilung.
-- [ ] 🧪 Zeitraum als ein Umschaltknopf rechts in der Gruppenreihe (nur „Sales“): Ein Klick wechselt zwischen „14 Tage“ und „Gesamt“. Die 9 Standardgruppen bleiben einreihig, und oben stehen die drei Reiter in voller Breite, auf Deutsch und Englisch.
+- [x] 🧪 Im Spiel: verkaufen und einen Contract abschließen, der heutige Balken wächst gestapelt (Gold unten, Grün oben).
+- [x] 🧪 Schlafen oder `/time add 1d`: rechts entsteht ein neuer Balken, die übrigen rücken nach links, die Achse skaliert neu.
+- [x] 🧪 Hover zeigt Tag, Summe und Aufteilung.
+- [x] 🧪 Zeitraum als ein Umschaltknopf rechts in der Gruppenreihe (nur „Sales“): Ein Klick wechselt zwischen „14 Tage“ und „Gesamt“. Die 9 Standardgruppen bleiben einreihig, und oben stehen die drei Reiter in voller Breite, auf Deutsch und Englisch.
 
 ### Multiplayer
 
